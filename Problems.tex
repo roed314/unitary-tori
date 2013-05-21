@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{amsmath,amscd,amssymb,latexsym, amsfonts}
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{iassumption}{Assumption}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{statement}[theorem]{Statement}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\val}{val}
+\DeclareMathOperator{\HH}{H}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Nm}{Nm}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\gen}{gen}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\SL}{SL}
+
+\newcommand{\mat}[4]{\left( \begin{array}{cc} {#1} & {#2} \\ {#3} & {#4}
+\end{array} \right)}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\CCx}{\mathbb{C}^\times}
+\newcommand{\OK}{\mathcal{O}_K}
+\newcommand{\OKn}{\mathcal{O}_{K_n}}
+\newcommand{\pK}{\mathfrak{p}_K}
+\newcommand{\pL}{\mathfrak{p}_L}
+\newcommand{\OL}{\mathcal{O}_L}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\Qp}{\mathbb{Q}_p}
+\newcommand{\Gm}{\mathbb{G}_m}
+\newcommand{\Lx}{L^\times}
+
+\newcommand{\Weil}{\mathcal{W}}
+\newcommand{\WD}{\mathcal{W}'}
+\newcommand{\Lpack}{\mathcal{L}}
+\newcommand{\Pgen}{P_G^{\gen}}
+\newcommand{\bmu}{\boldsymbol\mu}
+\newcommand{\mugen}{\bmu^{\gen}}
+
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\newcommand{\invlim}[1]{\varprojlim_{#1}}
+\newcommand{\Normalizer}[2]{\operatorname{N}_{#2}(#1)}
+
+\begin{document}
+
+\begin{enumerate}
+
+\item For $K$ finite over $\Qp$ and $G$ a unitary group over $K$ splitting over $E$, classify maximal tori in $G$ in terms of \'etale algebras over $E$ with involution.
+
+\begin{conjecture}
+They should correspond to \'etale algebras $F / E$ with involution $\sigma$ restricting to the nontrivial involution of $E / K$.  Write $T_F$ for the corresponding torus, which is restriction of scalars of the Norm 1 torus from $F$ to $F^\sigma$.
+\end{conjecture}
+\item Given $T_F$, which unitary groups does it embed into.
+
+\begin{conjecture}
+Given $\kappa \in F^\sigma$, we can construct a hermitian space from the form $\la x, y \ra = \Tr_{F/E}(\kappa \cdot x \sigma(y)$ for $x, y \in F$.  These are precisely the unitary groups into which $T_F$ embeds.
+\end{conjecture}
+
+\item What are the invariants of these forms that we've constructed?
+
+\begin{conjecture}
+Taking the discriminant of this form should induce a homomorphism from $(F^\sigma)^\times$ to $K^\times / \Nm_{E/K} E^\times$ with kernel $\Nm_{F/F^\sigma} F^\times$.  Have we actually normalized correctly to make this happen.
+\end{conjecture}
+
+\item From this description can we read off various properties of the torus: ramified vs unramified, anisotropic, character and cocharacter lattice....
+
+\item Can we give both the cohomological and intrinsic formulation of these questions?
+
+\item What is the global picture?  Are the local-global obstructions?
+
+\item What about $\RR$?
+
+\end{enumerate}
+
+\end{document}
