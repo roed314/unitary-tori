@@ -35,6 +35,7 @@
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\gen}{gen}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Cor}{Cor}
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\PGL}{PGL}
@@ -256,20 +257,25 @@ In both cases, the isomorphism class of the form depends only on $\lambda \in (E
 $(d,\delta_{A/K}) $ for all intents and purposes is $d \in K^\times/N_{A/K}(A^\times)$.
 
 \begin{notation}
-Given an \'etale algebra with involution $(E,\sigma)$ and $\lambda \in (E^\sigma)^\times$
-denote the Hermitian form:
-\[ H_{E,\sigma,\lambda} := Tr_{E/A}(\lambda x\sigma(y)) \]
+Given an \'etale algebra with involution $(E,\sigma)$ of dimension $2n$ and $\lambda \in (E^\sigma)^\times$ let $z\in E^\sigma$ be such that $\sqrt{z}$ primitively generates $E$ over $K$ and denote by $f'_z(X)$ its minimal polynomial.
+Define the Hermitian form:
+\[ H_{E,\sigma,\lambda} := \tfrac{1}{2}Tr_{E/A}\left(\lambda x\sigma(y)\right) \]
 and the symmetric bilinear form:
-\[ B_{E,\sigma,\lambda} := Tr_{E/A}(\lambda x\sigma(y)). \]
+\[ B_{E,\sigma,\lambda} := \tfrac{1}{2}Tr_{E/A}\left(\lambda x\sigma(y)\right). \]
 \end{notation}
 
 \TODO - in all the following the Witt invariant formula might be nicer
 
 \begin{proposition}\label{prop:Hasse}
+The disciminant of $B_{E,\sigma,\lambda}$ is:
+\[  (-1)^n\delta_{E/K}, \]
 The Hasse invariant of $B_{E,\sigma,\lambda}$ is:
-\[ Cor_{E^\sigma/K}((-\lambda f_z'(z),z)(-1,-1)^{n(n-1)/2}...). \]
+\[  \Cor_{E^\sigma/K}((\lambda (-1)^n f_z'(z), z)_{E^\sigma})\cdot(-1,-1)_K^{n(n-1)/2}.\] 
+The signature of $B_{E,\sigma,\lambda}$ at a place where $E$ is complex and $E^\sigma$ is totally real is:
+\[ 2(\#\lambda^+. \#\lambda^-) \]
+is twice the number of positive and negative embeddings of $\lambda$.
 \end{proposition}
-This is \TODO - cite
+This is \TODO{cite Thm 3.3, 3.8, 5.2 in my paper}.
 
 \begin{proposition}\label{prop:InvariantRelations}
 Let $H$ be any Hermitian form and denote:
@@ -283,20 +289,25 @@ Then:
 In particular the invariants of $B$ are equivalent to those of $H$.
 \end{proposition}
 \begin{proof}
-\TODO - complete sketch.
+By using Proposition \ref{prop:Hasse}, and noting that $A = K(\sqrt{-\delta_{A/K}})$ one can compute that the Hasse invariant of the forms:
 
-By using Proposition \ref{prop:Hasse} one can compute that the Hasse invariant of the form:
-\[ \tfrac{1}{2}\Tr_{A/K}(dx_0\sigma(y_0) + \sum x_i\sigma(y_i)) \]
-is \TODO - work out exact 
-\[ (d,\delta_{A/K})(-2\delta_{A/K},\delta_{A/K})^n(-\delta_{A/K},-\delta_{A/K})^{n(n-1)/2}... \]
+\TODO - notation for discriminants of hermitian forms
+\[\Tr_{A/K}(dx_0\sigma(y_0)) \qquad \text{and} \qquad \Tr_{A/K}(x_1\sigma(y_1)) \]
+are respectively:
+\[ (-d \delta_{A/K}, \delta_{A/K})_K = (d,\delta_{A/K}) \qquad \text{and}\qquad ( -\delta_{A/K}, \delta_{A/K})_K = 1. \]
+From this we quickly conclude that the Hasse invariant of:
+\[ \Tr_{A/K}\left(dx_0\sigma(y_0) + \sum x_i\sigma(y_i)\right) \]
+is precisely
+\[ (d,\delta_{A/K})(-1,-1)_K^{n(n-1)/2}(\delta_{A/K},-1)_K^{n(n-1)/2}.\]
 Conversely, it follows that:
-\[ (d,\delta_{A/K}) = Hasse (...). \]
+\TODO - Notation
+\[ (d,\delta_{A/K}) = ``Hasse''  (\delta_{A/K},-1)_K^{n(n-1)/2}(-1,-1)_K^{n(n-1)/2}. \]
 At all places where $A/K$ is not split, this determines $d$ in $K^\times/N_{A/K}(A^\times)$.
 At all places where $A/K$ is split, the norm map is surjective, and the discriminant is meaningless.
 \TODO - phrasing that tells us we just determined $d$ globally.
 
 
-By \TODO - cite the discriminant of the form $B$ is precisely
+By Proposition \ref{prop:Hasse} the discriminant of the form $B$ is precisely
 \[ (-\delta_{A/K})^n. \]
 
 For a real ramified place the signature of $B$ is precisely:
@@ -310,12 +321,14 @@ For complex places there are no signatures in either case.
 \end{proof}
 
 
-
 \begin{proposition}
-The discriminant of invariant of $H_{E,\sigma,\lambda}$ is:
-\[ TODO \]
+The discriminant of $H_{E,\sigma,\lambda}$ satisfies:
+\[  (d,\delta_{A/K})_K =  \Cor_{E^\sigma/K}((\lambda (-1)^n f_z'(z), z)_{E^\sigma}) \cdot (\delta_{A/K},-1)_K^{n(n-1)/2}. \]
 Moreover, the map:
 \[ (E^\sigma)^\times/N_{E/E^\sigma}(E^\times) \rightarrow K^\times/N_{A/K}(A^\times) \]
+given by:
+\TODO{notation for hermitian discriminant}
+\[ \lambda \mapsto (-1)^{n(n-1)/2} D\left( \tfrac{1}{2}\Tr_{E/A}\left( \frac{(-1)^n\lambda}{f'_z(z)} x\sigma(y) \right)\right) \]
 is a homomorphism.
 \end{proposition}
 \begin{proof}
@@ -323,7 +336,7 @@ is a homomorphism.
 
 Combining the results of Propositions \ref{prop:Hasse} and \ref{prop:InvariantRelations} we find that:
 \TODO - details
-\[ (d,\delta_{A/K}) =  Cor_{E^\sigma/K}((\lambda,z)) Cor_{E^\sigma/K}((-f'(z),z) (-1,-1)^{n(n-1)/2}...) ... \]
+\[ (d,\delta_{A/K}) =  \Cor_{E^\sigma/K}((\lambda,z)) \Cor_{E^\sigma/K}((-f'(z),z) (-1,-1)^{n(n-1)/2}...) ... \]
 Now, if $\delta_{A/K}$ is a square then so is $z$
 
 Provided $E/E^\sigma$ (equiv $A/K$) not split the formula should tell us non-trivial $d$ come from non-trivial $\lambda$.
@@ -332,8 +345,8 @@ Note that  $(E^\sigma)^\times/N_{E/E^\sigma}(E^\times)$ is $( K^\times/N_{A/K}(A
 \end{proof}
 
 \begin{proposition}
-The signature of $H_{E,\sigma,\lambda}$ is:
-\[ TODO \]
+The signature of $H_{E,\sigma,\lambda}$ at a real place of $K$ ramified in $A$ is:
+\[ (\#\lambda^+,\#\lambda^-) \]
 \end{proposition}
 
 \subsection{Existence of Forms}
