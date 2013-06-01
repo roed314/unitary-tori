@@ -2,6 +2,7 @@
 \usepackage{amsmath,amscd,amssymb,latexsym, amsfonts}
 %\usepackage{mathtools}
 \usepackage{amsthm}
+\usepackage{xypic}
 
 \theoremstyle{plain}
 \newtheorem{iassumption}{Assumption}
@@ -58,6 +59,7 @@
 \newcommand{\Qp}{\mathbb{Q}_p}
 \newcommand{\Gm}{\mathbb{G}_m}
 \newcommand{\Lx}{L^\times}
+\newcommand{\fp}{\mathfrak{p}}
 
 \newcommand{\Weil}{\mathcal{W}}
 \newcommand{\WD}{\mathcal{W}'}
@@ -339,9 +341,9 @@ Combining the results of Propositions \ref{prop:Hasse} and \ref{prop:InvariantRe
 \[ (d,\delta_{A/K}) =  \Cor_{E^\sigma/K}((\lambda,z)) \Cor_{E^\sigma/K}((-f'(z),z) (-1,-1)^{n(n-1)/2}...) ... \]
 Now, if $\delta_{A/K}$ is a square then so is $z$
 
-Provided $E/E^\sigma$ (equiv $A/K$) not split the formula should tell us non-trivial $d$ come from non-trivial $\lambda$.
+Provided $E/E^\sigma$ not split the formula should tell us non-trivial $d$ come from non-trivial $\lambda$.
 
-Note that  $(E^\sigma)^\times/N_{E/E^\sigma}(E^\times)$ is $( K^\times/N_{A/K}(A^\times))^\ell$ where $\ell$ is the number of field factors of $E$.
+Note that for a local field $(E^\sigma)^\times/N_{E/E^\sigma}(E^\times)$ is $( K^\times/N_{A/K}(A^\times))^\ell$ where $\ell$ is the number of field factors of $E$ which are $\sigma$-stable.
 \end{proof}
 
 \begin{proposition}
@@ -354,7 +356,7 @@ The signature of $H_{E,\sigma,\lambda}$ at a real place of $K$ ramified in $A$ i
 \begin{theorem}
 Given $H$ a Hermitian form and $(E,\sigma)$ an \'etale algebra with involution (of the second kind) over $A$.Then for all $p$ primes of $K$ there exists $\lambda_p \in E^\sigma$ with:
 \[ H_p \simeq H_{E_p,\sigma,\lambda_p} \]
-\TODO - I am pretty sure there are no conditions, I haven't fully checked.
+if and only if there exists a field factor $E_i$ of $E$ which is $\sigma$ stable.
 \end{theorem}
 \begin{proof}
 \TODO - complete sketch
@@ -366,18 +368,18 @@ non-split finite places (use discriminant map proposition)
 Split places (trivial)
 \end{proof}
 
-
+\TODO{The more I think about the following the less I think I know}
 \begin{theorem}
 \TODO - phrasing
 
-There exists $\lambda_p$ locally everywhere if and only if there exists $\lambda_p$ globally.
+There exists $\lambda_p$ locally everywhere if and only if there exists $\lambda$ globally.
 \end{theorem}
 \begin{proof}
 \TODO - complete sketch (also check that this is true).
 
 Argument 1:
 
-The local global obstruction allowing $\lambda$ such that $B_{E,\sigma,\lambda} \simeq B$ does not exist because for any place $p$ where $A/K$ is innert, then for every field factor of $E$ we have $E/E^\sigma$ is innert, thus there is no local global obstruction.
+The local global obstruction allowing $\lambda$ such that $B_{E,\sigma,\lambda} \simeq B$ does not exist because for any place $\fp$ where $A/K$ is innert, then for every field factor of $E$ that is not globally split we should have $E_\fp/E_\fp^\sigma$ is innert, thus there is no local global obstruction.
 
 The equivalence of $B$'s and $H$'s should conclude the result.
 
@@ -389,6 +391,20 @@ We need a $\lambda$ with controlled number of positive/negative embeddings, assi
 \[ (E^\sigma)^\times/N_{E/E^\sigma}(E^\times) \rightarrow K^\times/N_{A/K}(A^\times) \]
 is surjective.
 So in total what we want is surjective when we appropriately restrict to `totally postive' elements. This sounds like a very standard CFT type problem, and since by Argument 1 this result should hold... this result should have been proven by someone else before now.
+I suspect it is basically an application of Hasses theorem on norms.
+
+We are trying to claim that in the following commutative diagram: 
+\[
+\xymatrix{
+(E^\sigma)^\times/N_{E/E^\sigma}(E^\times) \ar[r]^{(\cdot,z)} \ar[d]& H^2(E^\sigma, \pm 1) \ar[r] \ar[d]& \prod_{E \text{ not split}} H^2(E^\sigma_\fp,\pm 1) \ar[d]\\
+K^\times/N_{A/K}(A^\times) \ar[r]^{(\cdot,\delta_{A/K})} & H^2(K, \pm 1) \ar[r] & \prod_{A \text{ not split}} H^2(K_\fp,\pm 1) .
+}
+\]
+That an element in $K^\times/N_{A/K}(A^\times) $ is in the image of the left verticle map, provided its image is in the image of the right hand verticle map.
+
+Can it happen that $E/A$ is a field, $\sigma : E \rightarrow E$ restricts to $\sigma$ on $A$ and there exists a prime $p$ of $A$ and $\fp|p$ of $E$ such that $\sigma(\fp) \neq \fp$ but $\sigma(p) = p$?
+
+
 \end{proof}
 
 
