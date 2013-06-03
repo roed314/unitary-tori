@@ -323,7 +323,7 @@ For complex places there are no signatures in either case.
 \end{proof}
 
 
-\begin{proposition}
+\begin{proposition}\label{prop:discrimmap}
 The discriminant of $H_{E,\sigma,\lambda}$ satisfies:
 \[  (d,\delta_{A/K})_K =  \Cor_{E^\sigma/K}((\lambda (-1)^n f_z'(z), z)_{E^\sigma}) \cdot (\delta_{A/K},-1)_K^{n(n-1)/2}. \]
 Moreover, the map:
@@ -346,66 +346,131 @@ Provided $E/E^\sigma$ not split the formula should tell us non-trivial $d$ come 
 Note that for a local field $(E^\sigma)^\times/N_{E/E^\sigma}(E^\times)$ is $( K^\times/N_{A/K}(A^\times))^\ell$ where $\ell$ is the number of field factors of $E$ which are $\sigma$-stable.
 \end{proof}
 
-\begin{proposition}
-The signature of $H_{E,\sigma,\lambda}$ at a real place of $K$ ramified in $A$ is:
+\begin{proposition}\label{prop:discrimmapsurjective}
+Let $K$ be $p$-adic fidle, $\RR$ or $\CC$ and fix $A$ a quadratic extension of $K$ (potentially split).
+Fix $(E,\sigma)$ an \'etale algebra with involution (of the second kind) over $A$.
+If $E$ is a field then the homomorphism of Proposition \ref{prop:discrimmap} is surjective.
+\end{proposition}
+\begin{proof}
+The corestriction map is injective for local fields, and we are in the setting where both groups are isomorphic to $\{\pm1\}$, it follows immediately that the map is also surjective.
+\end{proof}
+
+\begin{proposition}\label{prop:signature}
+Let $K$ be $\RR$ and $A$ be $\CC$.
+If $E \simeq \CC$ then
+The signature of $H_{E,\sigma,\lambda}$ is:
 \[ (\#\lambda^+,\#\lambda^-) \]
+If $E\simeq \CC\times\CC$ with $\sigma$ interchanging factors then the signature of $H_{E,\sigma,\lambda}$ is:
+\[ (1,1). \]
 \end{proposition}
 
 \subsection{Existence of Forms}
 
 \begin{theorem}
-Given $H$ a Hermitian form and $(E,\sigma)$ an \'etale algebra with involution (of the second kind) over $A$.Then for all $p$ primes of $K$ there exists $\lambda_p \in E^\sigma$ with:
-\[ H_p \simeq H_{E_p,\sigma,\lambda_p} \]
-if and only if there exists a field factor $E_i$ of $E$ which is $\sigma$ stable.
+Let $K$ be a $p$-adic field and fix $A$ a quadratic extension of $K$ (potentially split).
+Given $H$ a Hermitian form and $(E,\sigma)$ an \'etale algebra with involution (of the second kind) over $A$. Then there exists $\lambda \in E^\sigma$ with:
+\[ H \simeq H_{E,\sigma,\lambda} \]
+if and only if there exists a factor $E_i^\sigma$ of $E^\sigma$ over which the corresponding factor of $E_i$ is not split.
 \end{theorem}
 \begin{proof}
-\TODO - complete sketch
+If $A$ is split over $K$ then there is a unique Hermitian space and hence nothing to show.
 
-non-split Infinite places (use signature proposition)
-
-non-split finite places (use discriminant map proposition)
-
-Split places (trivial)
+In this setting the cohomology groups and the corestriction map of Propostion \ref{prop:discrimmap} are products of those appearing in Proposition \ref{prop:discrimmapsurjective}. The map of Propostion \ref{prop:discrimmap} is thus surjective if the cohomology groups are non-trivial. This is the case precisely if at least one factor of $E_i$ over $E_i^\sigma$ is not split.
 \end{proof}
 
-\TODO{The more I think about the following the less I think I know}
-\begin{theorem}
-\TODO - phrasing
+\begin{example}
+Fix a prime numbers $p_1,p_2$ and $p_3$ such that $\left(\tfrac{p_1}{p_3}\right) = 1$ and $\left(\tfrac{p_2}{p_3}\right) = -1$.
+Set $A=\QQ(\sqrt{p_2})$ with the unique non-trivial involution, and $E=\QQ(\sqrt{p_2},\sqrt{p_1p_2})$ with the unique involution extending $\sigma$ acting trivially on $\sqrt{p_1p_2}$.
+Then $A_{p_3} = \QQ_{p_3}(\sqrt{p_2})$ and $E_{p_3} \simeq A_{p_3} \times A_{p_3}$ with $\sigma$ interchanging factors.
+It follows that the torus $T_{E,\sigma}$ does not embed into any unitary group which is not quasi-split at $p_3$.
+\end{example}
 
-There exists $\lambda_p$ locally everywhere if and only if there exists $\lambda$ globally.
+\begin{theorem}
+Let $K$ be $\RR$ or $\CC$ and fix $A$ a quadratic extension of $K$ (potentially split).
+Given $H$ a Hermitian form and $(E,\sigma)$ an \'etale algebra with involution (of the second kind) over $A$. Then there exists $\lambda \in E^\sigma$ with:
+\[ H \simeq H_{E,\sigma,\lambda} \]
+if and only if 
+\TODO - phrase signature conditions
+\end{theorem}
+\begin{proof}
+If $A$ is split over $K$ then there is a unique Hermitian space and hence nothing to show.
+This is the case unless $A=\CC$ and $K=\RR$. In this case $E$ is $\CC^n$, however some of the factors might be interchanged by $\sigma$.
+By Proposition \ref{prop:signature} the factors interchanged by $\sigma$ must contribute $(1,1)$ to the signature.
+Wheras those not interchanged contribute $(1,0)$ or $(0,1)$ depending on the choice of $\lambda$.
+From this we conclude the result.
+\end{proof}
+
+\begin{example}
+\TODO - A CM-field field $A$ and a complex field $E$ such that $E\otimes_\QQ \RR$ has factors interchanged by an involution.
+\end{example}
+
+
+\begin{lemma}\label{Lem:liftsigma}
+Let Let $K$ be a number field and fix $A$ a quadratic extension of $K$ (potentially split).
+Fix $(E,\sigma)$ an \'etale algebra with involution (of the second kind) over $A$.
+Write $E = E_s \times E_{ns}$ where $E_s \simeq E_s^\sigma \times E_s^\sigma$ and $\sigma$ interchanges factors and $E_{ns}$ is a product of $\sigma$-stable fields.
+There exists $\tilde{\sigma} \in \Gal(\overline{K}/K)$ inducing $\sigma$ on $E_{ns}$ (that is a unique $\tilde{\sigma}$ induces the involution on each factor.
+\end{lemma}
+\begin{proof}
+Write:
+\[ E_{ns} = \prod E_i \]
+and set $\tilde{E} = E_1^\sigma E_2^\sigma\ldots E_{n}^\sigma$ to be the composite field of all the fixed fields of the $E_i$.
+Notice that $E_i \simeq E_i^\sigma\otimes_K A \simeq E_i^\sigma A$.
+Now, $A$ and $\tilde{E}$ are algebraicly disjoint fields and for all $i$ there exists canonical embeddings of fields:
+\[ \xymatrix{ E_i \simeq E_i^\sigma\otimes_K A \ar@{^(->}[r]\ar@{-}[d] &  \tilde{E} \otimes_K A \simeq \tilde{E}A \ar@{-}[d] \\ 
+                      E_i^\sigma \ar@{^(->}[r]\ar@{-} & \tilde{E}.}
+ \]
+The field $\tilde{E}A$ has a unique involution $\tilde{\sigma}$ such that $(\tilde{E}A)^{\tilde{\sigma}} = \tilde{E}$. Since $E_i^{\tilde{\sigma}} = E_i^\sigma$ this involution restricts to $\sigma$ on the image of $E_i$.
+Finally, $\tilde{\sigma}$ lifts to an element of $\Gal(\overline{K}/K)$, giving us the claim.
+\end{proof}
+
+\begin{theorem}
+Let $K$ be a number field and fix $A$ a quadratic extension of $K$ (potentially split).
+Given $H$ a Hermitian form and $(E,\sigma)$ an \'etale algebra with involution (of the second kind) over $A$. Then there exists $\lambda \in E^\sigma$ with:
+\[ H \simeq H_{E,\sigma,\lambda} \]
+if and only if there exists $\lambda_\fp$ for all localizations $\fp$ of $K$ (both archimedian and non-archimedian).
 \end{theorem}
 \begin{proof}
 \TODO - complete sketch (also check that this is true).
+\TODO - need to distinguish primes of $K$, $A$ and $E$.
 
-Argument 1:
-
-The local global obstruction allowing $\lambda$ such that $B_{E,\sigma,\lambda} \simeq B$ does not exist because for any place $\fp$ where $A/K$ is innert, then for every field factor of $E$ that is not globally split we should have $E_\fp/E_\fp^\sigma$ is innert, thus there is no local global obstruction.
-
-The equivalence of $B$'s and $H$'s should conclude the result.
-
-\bigskip
-Argument 2:
-
-Optimistically global class field theory has a name for what we are doing.
-We need a $\lambda$ with controlled number of positive/negative embeddings, asside from this we are trying to say that the map:
-\[ (E^\sigma)^\times/N_{E/E^\sigma}(E^\times) \rightarrow K^\times/N_{A/K}(A^\times) \]
-is surjective.
-So in total what we want is surjective when we appropriately restrict to `totally postive' elements. This sounds like a very standard CFT type problem, and since by Argument 1 this result should hold... this result should have been proven by someone else before now.
-I suspect it is basically an application of Hasses theorem on norms.
-
-We are trying to claim that in the following commutative diagram: 
+Write $E^\sigma = \prod_{i=1}^n E^\sigma_i$.
+We have the following diagram:
 \[
 \xymatrix{
-(E^\sigma)^\times/N_{E/E^\sigma}(E^\times) \ar[r]^{(\cdot,z)} \ar[d]& H^2(E^\sigma, \pm 1) \ar[r] \ar[d]& \prod_{E \text{ not split}} H^2(E^\sigma_\fp,\pm 1) \ar[d]\\
-K^\times/N_{A/K}(A^\times) \ar[r]^{(\cdot,\delta_{A/K})} & H^2(K, \pm 1) \ar[r] & \prod_{A \text{ not split}} H^2(K_\fp,\pm 1) .
+(E^\sigma)^\times/N_{E/E^\sigma}(E^\times) \ar[r]^{(\cdot,z)} \ar[d]& H^2(E^\sigma, \pm 1) \ar[r] \ar[d]& \underset{E_{i,\fp} \text{ not split}}\oplus H^2(E^\sigma_{i,\fp},\pm 1) \ar[d]\\
+K^\times/N_{A/K}(A^\times) \ar[r]^{(\cdot,\delta_{A/K})} & H^2(K, \pm 1) \ar[r] & \underset{A_\fp \text{ not split}}\oplus H^2(K_\fp,\pm 1)
 }
 \]
-That an element in $K^\times/N_{A/K}(A^\times) $ is in the image of the left verticle map, provided its image is in the image of the right hand verticle map.
+where the compositions of the horizontal maps are injective.
+We must show that an element in $K^\times/N_{A/K}(A^\times) $ is in the image of the left verticle map, provided its image is in the image of the right hand verticle map.
+We must do this in spite of the fact that the horizontal maps are not surjective.
 
-Can it happen that $E/A$ is a field, $\sigma : E \rightarrow E$ restricts to $\sigma$ on $A$ and there exists a prime $p$ of $A$ and $\fp|p$ of $E$ such that $\sigma(\fp) \neq \fp$ but $\sigma(p) = p$?
+The failure of surjectivity is captured by the following, the bottom map surjects onto the kernel of the map:
+\[ \underset{A_\fp \text{ not split}}\oplus H^2(K_\fp,\pm 1)  \rightarrow \{ \pm1\} \]
+given by $(x_\fp) \mapsto \prod x_\fp$. The top map surjects onto the kernel of the map:
+\[ \underset{E_{i,\fp} \text{ not split}}\oplus H^2(E_{i,\fp}^\sigma,\pm 1)  \rightarrow \{ \pm1\}^n \]
+given by $(x_{i,\fp}) \mapsto (\prod x_{1,\fp}, \ldots, \prod x_{n,\fp}) $.
 
-
+To complete the argument, it suffices to show that the kernel of the map:
+\[\underset{E_{i,\fp} \text{ not split}}\oplus H^2(E_{i,\fp}^\sigma,\pm 1)  \rightarrow \underset{A_\fp \text{ not split}}\oplus H^2(K_\fp,\pm 1) \]
+surjects onto the kernel of the map:
+\[ \{ \pm1\}^n \rightarrow \{ \pm1\}. \]
+To show this, it suffices to do this for a single fixed $\fp$ a prime of $K$.
+Fix $\fp$ any prime of $K$ where $\tilde{\sigma}$ of Lemma \ref{Lem:liftsigma} acts as Frobenius. Then for all $i$ there exists $\fp_i | \fp$ prime of $E_i^\sigma$ for which $E_{\fp_i,i}$ is non-split. It follows that $\oplus_i H^2(E_{\fp_i,i}^\sigma,\pm1)$ surjects onto $\{\pm 1\}^n$, thus this also holds for the larger group, and hence also for the kernels.
 \end{proof}
+
+\begin{theorem}
+\TODO - summarize a pure global existance statement.
+\end{theorem}
+
+\begin{remark}
+\TODO - Can phrase this as: The reflex algebra splits the even clifford algebra + signature conditions.
+Is there a meaningfull interpretation of the clifford algebra in this context?
+Can we interpret it as telling us about a quaternioninc symplectic group embedding of the unitary group?
+\end{remark}
+
+
 
 
 \section{Properties of $T_{E,\sigma}$}
