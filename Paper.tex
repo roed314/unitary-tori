@@ -62,6 +62,9 @@
 \newcommand{\Lx}{L^\times}
 \newcommand{\fp}{\mathfrak{p}}
 
+\newcommand{\GalKbK}{\Gamma_K}
+\newcommand{\Kb}{\overline{K}}
+
 \newcommand{\Weil}{\mathcal{W}}
 \newcommand{\WD}{\mathcal{W}'}
 \newcommand{\Lpack}{\mathcal{L}}
@@ -71,6 +74,14 @@
 
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
+
+%% Labeled items
+\makeatletter
+\newcommand{\labitem}[2]{
+\def\@itemlabel{\textbf{#1}}
+\item
+\def\@currentlabel{#1}\label{#2}}
+\makeatother
 
 \newcommand{\invlim}[1]{\varprojlim_{#1}}
 \newcommand{\Normalizer}[2]{\operatorname{N}_{#2}(#1)}
@@ -122,11 +133,11 @@ The problem of giving a classification and/or characterization of algebraic tori
 \TODO{} Decide which of the following to define/give notations for, we probably don't need all of it. Some of it can be postponed until the sections where it is used.
 \begin{itemize}
 \item Explain our notation for fields and \'etale algebras: $\aK$, $\gK$, $\lK$, $\fK$, $\aL$, $\gL$, $\lL$, $\fL$, $\aE$, $\gE$, $\lE$, $\fE$, $\aV$, $\gV$, $\lV$, $\fV$.
-\item The setting is a base field $K$ taken to be a $p$-adic field or number field (should we notationally distinguish? I don't currently).
-\item We shall denote by $...$ the absolute Galois group of $K$.
-\item \'Etale algebras are... typically denoted by $E$.
-\item \'Etale algebras with involutions are...
+\item The setting is a base field $K$ taken to be a $p$-adic field or number field.
+\item We shall denote by $\GalKbK$ the absolute Galois group of $K$.
 \item Algebraic Tori are... 
+\item \'Etale algebras are... typically denoted by $E$.  Write $T_E$ for the $K$-torus $\Res_{E/K} \Gm$.
+\item \'Etale algebras with involutions are denoted by $(E, \sigma)$.  Write $T_{E, \sigma}$ for the $K$-torus defined as the restriction from $E^\sigma$ to $K$ of the Norm 1 torus in $\Res_{E/E^\sigma} \Gm$.
 \item Hermitian Spaces are ... their invariants over (local fields, global fields) are...
 \item Unitary groups are ... their invariants over (local fields, global fields) are...
 \item Quadratic Forms are ...their invariants over (local fields, global fields) are...
@@ -137,31 +148,27 @@ The problem of giving a classification and/or characterization of algebraic tori
 
 \section{Tori and \'Etale Algebras}
 
-Let $T$ be a torus defined over $\aK$, $\aV$ a vector space over $\aK$ and $\rho:T_\aK \rightarrow \GL(V)$ an injective $\aK$-rational algebraic representation of $T$.
+Let $T$ be a torus defined over $K$, $V$ a vector space over $K$ and $\rho : T \rightarrow \GL(V)$ an inclusion of $K$-groups.  After diagonalizing the image of $\rho$ over $\Kb$, projecting onto each coordinate gives a finite set of characters of $T$; let $X$ denote the set of characters arising in this way. 
 
-Associated to this data there exists an \'etale algebra $\aE$ over $\aK$, inclusions $\rho'' : \aE \hookrightarrow \End(V_K)$ and $\rho' : T \rightarrow T_E$ for which $\rho = \rho''\circ\rho'$.
+Associated to this data there exists an \'etale algebra $E$ over $K$, inclusions $\rho'' : E \hookrightarrow \End(V)$ and $\rho' : T \rightarrow T_E$ for which $\rho = \rho''\circ\rho'$.
 
-\begin{proposition}
-We have the following constructions of $E$:
+\begin{proposition} \label{prop:etale-construction}
+The following constructions produce isomorphic \'etale algebras $E$ over $K$:
 \begin{enumerate}
-\item Let $X$ denote the set of characters of $T$ appearing via the representation of $\rho$ over $\overline{K}$. This is a Galois set for the action of $\Gal(\overline{K}/K)$ hence defines a unique \'etale algebra $E$.
-\item Let $C = C_\rho(T)$ be the centralizer of the image of $\rho(T)$ in $\End(V_K)$ (as a scheme over $K$).
-           Let $Z = Z(C_\rho(T))$ be the centre of $C$ (as a scheme over $K$).
-           Let $E = Z(K)$.
-\item If the characters $\chi$ appearing in $X$ are distinguished by their values on $K$ points then $E$ is the $K$-span in $\End(V_K)$ of $\rho(T(K))$.
+\item \label{prop:etale-construction1} The set $X$ has an action of $\GalKbK$ and thus determines an \'etale algebra $E$.
+\item \label{prop:etale-construction2} Let $C = C_{\End(V)}(\rho(T))$ be the centralizer of $\rho(T)$ in $\End(V)$ and $Z$ be its center, both as schemes over $K$.  Then $E = Z(K)$ is an \'etale algebra.
+\item \label{prop:etale-construction3} If $K$ is infinite, then $E$ can be taken as the $K$-span in $\End(V)$ of $\rho(T(K))$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-That (2) and (3) give \'etale algebras follows from base change to the algebraic closure.
-That the algebra constructed by (3) is contained in that constructed by (2) is clear.
+That \eqref{prop:etale-construction2} and \eqref{prop:etale-construction3} give \'etale algebras follows from base change to the algebraic closure.
+That the algebra constructed by \eqref{prop:etale-construction3} is contained in that constructed by \eqref{prop:etale-construction2} is clear.
 The converse can be checked over the algebraic closure, using flatness and dimension considerations.
 
-The equivalence of (1) and (3) follows from the characterization of \'etale algebras by Galois descent.
+The equivalence of \eqref{prop:etale-construction1} and \eqref{prop:etale-construction3} follows from the characterization of \'etale algebras by Galois descent.
 \end{proof}
 
-\begin{remark}
-If the size of $X$ equivalently the $K$-dimension of $E$ equals the $K$ dimension of $V_K$ then $V_K$ is a rank $1$ module over $E$ hence may be (non-canonically) identified with $E$.
-\end{remark}
+From description \eqref{prop:etale-construction2}, we obtain inclusions $\rho'' : E \hookrightarrow \End(V)$ and $\rho' : T \rightarrow T_E$ which satisfy $\rho = \rho''\circ\rho'$.  Furthermore, if $\dim_K E = \dim_K V$ then $\rho''$ gives $V$ the structure of a rank-$1$ $E$-module.
 
 \subsection{Structures on $E$}
 
