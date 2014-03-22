@@ -3,6 +3,7 @@
 %\usepackage{mathtools}
 \usepackage{amsthm}
 \usepackage{xypic}
+\usepackage{yfonts, mathrsfs}
 
 \theoremstyle{plain}
 \newtheorem{iassumption}{Assumption}
@@ -76,6 +77,23 @@
 
 \newcommand{\TODO}[1]{\textbf{TODO-#1}}
 
+\newcommand{\aK}{K}
+\newcommand{\gK}{\mathcal{K}}
+\newcommand{\lK}{\mathfrak{K}}
+\newcommand{\fK}{\textswab{K}}
+\newcommand{\aL}{L}
+\newcommand{\gL}{\mathcal{L}}
+\newcommand{\lL}{\mathfrak{L}}
+\newcommand{\fL}{\textswab{L}}
+\newcommand{\aE}{E}
+\newcommand{\gE}{\mathcal{E}}
+\newcommand{\lE}{\mathfrak{E}}
+\newcommand{\fE}{\textswab{E}}
+\newcommand{\aV}{V}
+\newcommand{\gV}{\mathcal{V}}
+\newcommand{\lV}{\mathfrak{V}}
+\newcommand{\fV}{\textswab{V}}
+
 \title{Algebraic Tori in Unitary Groups}
 \author{Andrew Fiori \& David Roe}
 
@@ -103,6 +121,7 @@ The problem of giving a classification and/or characterization of algebraic tori
 
 \TODO{} Decide which of the following to define/give notations for, we probably don't need all of it. Some of it can be postponed until the sections where it is used.
 \begin{itemize}
+\item Explain our notation for fields and \'etale algebras: $\aK$, $\gK$, $\lK$, $\fK$, $\aL$, $\gL$, $\lL$, $\fL$, $\aE$, $\gE$, $\lE$, $\fE$, $\aV$, $\gV$, $\lV$, $\fV$.
 \item The setting is a base field $K$ taken to be a $p$-adic field or number field (should we notationally distinguish? I don't currently).
 \item We shall denote by $...$ the absolute Galois group of $K$.
 \item \'Etale algebras are... typically denoted by $E$.
@@ -118,9 +137,9 @@ The problem of giving a classification and/or characterization of algebraic tori
 
 \section{Tori and \'Etale Algebras}
 
-Let $T$ be a torus defined over $K$ and $\rho:T_K \rightarrow \GL(V_K)$ a $K$-rational algebraic representation of $T$ (one can and might as well assume $\rho$ is injective).
+Let $T$ be a torus defined over $\aK$, $\aV$ a vector space over $\aK$ and $\rho:T_\aK \rightarrow \GL(V)$ an injective $\aK$-rational algebraic representation of $T$.
 
-Associated to this data there exists an \'etale algebra $E$ over $K$, inclusions $\rho'' : E \hookrightarrow \End(V_K)$ and $\rho' : T \rightarrow T_E$ for which $\rho = \rho''\circ\rho'$.
+Associated to this data there exists an \'etale algebra $\aE$ over $\aK$, inclusions $\rho'' : \aE \hookrightarrow \End(V_K)$ and $\rho' : T \rightarrow T_E$ for which $\rho = \rho''\circ\rho'$.
 
 \begin{proposition}
 We have the following constructions of $E$:
@@ -263,7 +282,7 @@ Given an \'etale algebra with involution $(E,\sigma)$ of dimension $2n$ and $\la
 Define the Hermitian form:
 \[ H_{E,\sigma,\lambda} := \tfrac{1}{2}Tr_{E/A}\left(\lambda x\sigma(y)\right) \]
 and the symmetric bilinear form:
-\[ B_{E,\sigma,\lambda} := \tfrac{1}{2}Tr_{E/A}\left(\lambda x\sigma(y)\right). \]
+\[ B_{E,\sigma,\lambda} := \tfrac{1}{2}Tr_{E/K}\left(\lambda x\sigma(y)\right). \]
 \end{notation}
 
 \TODO - in all the following the Witt invariant formula might be nicer
