@@ -24,6 +24,7 @@
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{remark}[theorem]{Remark}
 
+\DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\val}{val}
 \DeclareMathOperator{\HH}{H}
@@ -140,6 +141,61 @@ The problem of giving a classification and/or characterization of algebraic tori
 \item \'Etale algebras with involutions are denoted by $(E, \sigma)$.  Write $T_{E, \sigma}$ for the $K$-torus defined as the restriction from $E^\sigma$ to $K$ of the Norm 1 torus in $\Res_{E/E^\sigma} \Gm$.
 \item Hermitian Spaces are ... their invariants over (local fields, global fields) are...
 \item Unitary groups are ... their invariants over (local fields, global fields) are...
+
+For our purposes a unitary group is a simply connect group $G$ of type $A_n$.
+
+
+The forms of $G$ are in bijection with the elements of $H^1(\Gamma, \Aut(G))$.
+
+When $n>1$ the outer automorphism is a group of order $2$ and we have an exact sequence:
+\[ 1 \rightarrow   G^{adj} \rightarrow \Aut(G) \rightarrow \mu_2  \rightarrow 1 \]
+from which we obtain an exact sequence:
+\[ \ldots  H^1(\Gamma, G^{adj})  \rightarrow  H^1(\Gamma, \Aut(G)) \rightarrow  H^1(\Gamma, \mu_2) \rightarrow \ldots \]
+We conclude we can characterize forms of $G$ by invariants in $H^1(\Gamma, \mu_2)$ and $H^1(\Gamma, G^{adj})$.
+
+An element of $H^1(\Gamma, \mu_2)$ corresponds to a quadratic \'etale extension $E$ of $K$.
+More precisely it is the $n+1$ torsion of $T_{E,\sigma}$.
+We have an exact sequence:
+\[ \ldots \rightarrow H^1(\Gamma,G) \rightarrow H^1(\Gamma, G^{adj}) \rightarrow H^2(\Gamma, \mu_{n+1}^\xi) \rightarrow \ldots. \]
+A form of $G$ thus has an invariant in $H^2(\Gamma, mu_{n+1}^\xi)$.
+
+$H^2(\Gamma, \mu_{n+1}^\xi)$ fits into the exact sequence:
+\[ H^1(\Gamma, T_{E,\sigma}) \rightarrow H^2(\Gamma, mu_{n+1}^\xi) \rightarrow H^2(\Gamma, T_{E,\sigma}) \overset{[n+1]}\rightarrow H^2(\Gamma, T_{E,\sigma}). \]
+We are thus interested in the cohomology of $T_{E,\sigma}$.
+
+The exact sequence $1 \rightarrow T_{E,\sigma} \rightarrow T_E \rightarrow T_{E^\sigma} \rightarrow 1$ and Hilbert's Theorem 90 allow us to compute that 
+$H^1(\Gamma, T_{E,\sigma}) = k^\times/N_{E/k}(E^\times)$ and that $H^2(\Gamma, T_{E,\sigma})$ is the kernel of the corestriction map from the Brauer group of $E$ to that of $E^\sigma$.
+In particular we can now deduce that $H^2(\Gamma, \mu_{n+1}^\xi)$ corresponds to element a pair of an element of $\delta\in k^\times/(k^\times)^nN_{E/k}(E^\times)$ and a degree $n$ central simple algebra over $E$ in the $n$-torsion of the Brauer group which is only non-trivial at the places of $E$ over $K$ which split, and for places which split the algebra over one factor is isomorphic to the opposite algebra of that over the other.
+
+Finally, we must consider the group $H^1(\Gamma,G)$. As $G$ is simply connect, this is only non-trivial at the real places of $K$.
+In terms of real places, there are two cases to consider, when $E=\RR\times\RR$ then the $G$ is the automorphism group of a free module. As there are no forms of free modules, $H^1(\Gamma,G)$ is then trivial. If $E=\C$, then $G$ is the automorphism group of a Hermitian space and $H^1(\Gamma,G)$ classifies the Hermitian forms of the same discriminant as that defining $G$, over $\RR$ this means it classifies the signature.
+
+TODO --- Clarify how twisting determines the order in which invariants should be considered.
+
+Given a a collection of invariants, $E$, $A$, $\delta$, and signatures at real places of $K$ which ramify in $E$ we can construct the group $G$ as follows.
+By assumption $A$ can be given an involution $\sigma_A$ of restricting to $\sigma$ on $E$.
+Fix an element $J \in A^\sigma$ of reduced norm $\delta$ such that at each real place of $K$ which ramifies in $E$ the matrix for $J$ has $r$ positive eigenvalues and $s$ negative eigenvalues where $(r,s)$ is the signature at the real place. We may then define $G$ as:
+\[ G(R) = \{ g \in (A\otimes_K R)^\times \mid gJ\sigma_A(g) = J \} \]
+One may check that $G$ determines $E$, $A$, $\delta$ and the signatures uniquely when $n>1$.
+
+TODO --- REMARK ---
+In the case of $n=1$, we may perform the same constructions, however the group does not uniquely determine invariants $E$, $A$, $\delta$, and signatures.
+Indeed, there is no outer automorphism group, so the choice of $E$ is no longer an invariant.
+Exceptional isomorphisms of groups tell us that for $n=1$ the group $G$ is the spin group of a rank $3$ quadratic space.
+In odd rank the discriminant does not impact the isomorphism type of the orthogonal group.
+The discriminant of the quadratic space does still play a role in defining the Clifford algebra, in the same way it plays a role in defining a unitary group. The Witt invariant of the quadratic space is still an invariant and determines the algebra $A$.
+
+
+
+
+
+
+ 
+
+
+
+
+
 \item Quadratic Forms are ...their invariants over (local fields, global fields) are...
 \item Orthogonal Groups are ...their invariants over (local fields, global fields) are...
 \item Connections between orthogonal and unitary groups.
