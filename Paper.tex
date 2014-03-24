@@ -236,16 +236,16 @@ It is worth remembering that choosing an $E$ and a discriminant is equivalent to
 
 The following example illustrates that any two quadratic algebras have $2$-dimensional Hermitian spaces with isomorphic special unitary groups.
 \begin{example}
-Consider $L = K(\sqrt{d_1},\sqrt{d_2})$ with $\sigma$ the involution which acts as $-1$ on both $\sqrt{d_1}$ and $\sqrt{d_2}$.
-Then the maps $H_1 : L \times L \rightarrow K(\sqrt{d_1})$  $H_2 : L \times L \rightarrow K(\sqrt{d_2})$ given respectively by 
-$H_i(x,y) =  Tr_{L/K(\sqrt{d_i})}(\sqrt{\delta_1\delta_2}x\sigma(y))$ gives $L$ the structure of $K(\sqrt{d_i})$-Hermitian spaces.
+Consider $\delta_1,\delta_2$ two elements of $K$.
+Let $A$ be the quaternion algebra $(\delta_1,\delta_2)$.
+Then $A$ is a $E_i=K(\sqrt{\delta_i})$ module for $i=1,2$ and a quadratic module over $K$.
+Hermitian  polarization of the norm form relative to the module structures makes $A$ into Hermitian spaces over both $E_1$ and $E_2$.
 
-We may also consider the $K$-quadratic structure $B(x,y) = Tr_{L/K}(\sqrt{\delta_1\delta_2}x\sigma(y))$ and Symplectic structures $S_i(x,y) = Tr_{L/K}(\sqrt{\delta_i}x\sigma(y))$.
-Then we observe that $\Aut(H_i) = \Aut(B) \cap \Aut(S_i)$. With respect to the basis $\{1,\sqrt{\delta_1},\sqrt{\delta_2},\sqrt{\delta_1\delta_2}\}$ the forms have Gram matricies:
-\[ B \sim \begin{pmatrix} 0 & 0 & 0 & \delta_1\delta_2 \\ 0 & 0 &  \delta_1\delta_2 & 0 \\ 0 &  \delta_1\delta_2 & 0 & 0 \\  \delta_1\delta_2 & 0 & 0 & 0 \end{pmatrix} \]
-\[ S_1 \sim \begin{pmatrix} 0 & \delta_1 & 0 & 0 \\ -\delta_1 & 0 & 0 & 0 \\ 0 & 0 & 0 & \delta_1\delta_2 \\   0 & 0 & -\delta_1\delta_2 & 0  \end{pmatrix} \]
-\[ S_2  \sim \begin{pmatrix} 0 & 0 &  \delta_1&0 \\ 0 & 0 & 0 & \delta_1\delta_2 &  \\  -\delta_1 & 0  & 0 & 0 \\   0 & -\delta_1\delta_2 &0 & 0  \end{pmatrix} \]
-The matrix $\begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\  0 & 0 & 0 & 1 \end{pmatrix} \in \Aut(B)$ transforms $S_1$ to $S_2$ and thus transforms $\Aut(H_1)$ to $\Aut(H_2)$
+In either case we have that $A^1(R) = \{ g\in (A\otimes_K R)^\times \mid N_{A/K} = 1 \}$ acts by left multiplication on $A$ and preserves the norm form and thus both Hermitian forms. By base changing to $\overline{K}$ we redily verify that $A^1 = SU(H_i)$ for $i=1,2$.
+
+Over a local field the two isomorphism classes of $E_i$-Hermitian spaces arise from the two isomorphism classes of Quaternion algebra.
+Consequently both $E_1$ special unitary groups are isomorphic to $E_2$ special unitary groups.
+How isomorphism classes pair off is controlled by $(\delta_1,\delta_2)$.
 \end{example}
 \end{remark}
 
