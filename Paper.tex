@@ -114,7 +114,7 @@
 \maketitle
 
 \begin{abstract}
-We give a characterization of the algebraic tori in unitary groups in terms of the structure of \`etale algebras with involution. We determine relavent properties, such as unramifiedness or anisotropicness, of the tori from the associated algebra. We discuss the implications on the structure of the building for the unitary group. We give a cohomological reinterpretation of the results.
+We give a characterization of the algebraic tori in unitary groups in terms of the structure of \'etale algebras with involution. We determine relavent properties, such as unramifiedness or anisotropicness, of the tori from the associated algebra. We discuss the implications on the structure of the building for the unitary group. We give a cohomological reinterpretation of the results.
 \end{abstract}
 
 \tableofcontents
@@ -136,10 +136,39 @@ The problem of giving a classification and/or characterization of algebraic tori
 \item Explain our notation for fields and \'etale algebras: $\aK$, $\gK$, $\lK$, $\fK$, $\aL$, $\gL$, $\lL$, $\fL$, $\aE$, $\gE$, $\lE$, $\fE$, $\aV$, $\gV$, $\lV$, $\fV$.
 \item The setting is a base field $K$ taken to be a $p$-adic field or number field.
 \item We shall denote by $\GalKbK$ the absolute Galois group of $K$.
-\item Algebraic Tori are... 
-\item \'Etale algebras are... typically denoted by $E$.  Write $T_E$ for the $K$-torus $\Res_{E/K} \Gm$.
-\item \'Etale algebras with involutions are denoted by $(E, \sigma)$.  Write $T_{E, \sigma}$ for the $K$-torus defined as the restriction from $E^\sigma$ to $K$ of the Norm 1 torus in $\Res_{E/E^\sigma} \Gm$.
-\item 
+
+
+\end{itemize}
+
+\subsection{Tori and \'Etale Algebras}
+
+By an algebraic torus over $K$ we mean a group scheme $T$ over $K$ which is isomorphic to ${\Gm}_{\overline{K}}^n$ over $\overline{K}$.
+The automorphism group of $T$ over $\overline{K}$ is $GL_n(\ZZ)$ and thus forms of $T$ are classified by the cohomology set $H^1(\GalKbK,GL_n(\ZZ))$.
+
+By an \'etala algebra $E$ over the field $K$ we mean that $E$ is isomorphic to the direct product of (seperable) field extensions $E_i$ of $K$.
+Over the algebraic closure $\overline{K}$ of $K$ we have that $E\otimes_K \overline{K} \simeq \prod_\rho \overline{K}_\rho$ where $\rho \in \Hom(E,\overline{K})$.
+It is well known that forms of $E$ are in bijection with forms of the Galois set $\Hom(E,\overline{K})$ from which we obtain that \'etale algebras are classified by the Galois set $H^1(\GalKbK, \Sigma_n)$.
+
+Associated to an \'etale algebra $E$ is an algebraic torus which we shall denote by $T_E = \Res_{E/K} {\Gm}_E$.
+Its functor of points is given by:
+\[ T_E(R) = \{ g \in (E\otimes_K R)^\times \}. \]
+The splitting field of $T_E$ is the normal closure of $E$ and a basis for its character module is naturally identified with $\Hom(E,\overline{K})$.
+
+\begin{remark}
+All tori can be realized as subtori of $T_E$ (see \ref{TODO - forward ref}).
+\end{remark}
+
+By an \'etale algebra with involution $(E,\sigma)$, we mean an \'etale algebra $E$, and an automorphism of $E$ of order $2$ such that $E^\sigma$ the elements of $E$ fixed by $\sigma$ has half the dimension of $E$.
+This is equivalent to specifying the \'etale algebra $E^\sigma$, and a quadratic \'etale extension $E = E^\sigma[x]/(x^2-d)$ of $E^\sigma$ for an element $d\in (E^\sigma)^\times$.
+
+Associated to an \'etale algebra with involution $(E,\sigma)$ is an algebraic torus which we shall denote by $T_{E,\sigma} \subset T_E$.
+Its functor of points is:
+\[ T_{E,\sigma}(R) = \{ g \in (E\otimes_K R)^\times \mid g\sigma(g) = 1 \}. \]
+This torus sits in the exact sequence:
+\[ 1 \rightarrow  T_{E,\sigma} \rightarrow T_E \overset{N_{E/E^\sigma}}\rightarrow T_{E^\sigma} \rightarrow 1 \]
+
+
+\subsection{Hermitian Spaces}
 
 Fix a quadratic \'etale extension $E$ of $K$ and a free $E$-module $V$.
 A Hermitian structure on $V$ is a non-degenerate skew form $H : V\times V \rightarrow E$.
@@ -161,20 +190,20 @@ Hermitian structures on $E$ are classified up to isomorphism by their discrimina
 Moreover, $\delta$ may be computed as the determinant of the Grahm matrix whereas $s_\nu$ and $r_\nu$ are respectively the number of positive and negative eigenvalues of hte Grahm matrix.
 \end{proposition}
 
-\item 
+\subsection{Unitary Groups}
 
 For our purposes a unitary group is a simply connect group $G$ of type $A_n$.
 We may construct such a group as follows.
 Fix the following:
 \begin{itemize}
 \item An quadratic \'etale algebra $E$ over $K$.
-\item A central simple $E$-algebra $F$ of degree $n$ with anti-involution $\sigma$ restricting to the non-trivial involution of $E$.
+\item A central simple $E$-algebra $A$ of degree $n$ with anti-involution $\sigma$ restricting to the non-trivial involution of $E$.
 \item An element $J\in F^\sigma$ of norm $\delta$ whose minimal polynomial at a real place $\nu$ of $K$ which ramifies in $E$ has $r_\nu$ positive roots and $s_\nu$ negative roots.
 \end{itemize}
 Define then $G$ to be the group scheme whose points over a $K$-algebra $R$ are given by:
-\[ G(R) = \{ g\in (F\otimes_K R)^\times \mid gJ\sigma(g) = J \}. \]
+\[ G(R) = \{ g\in (A\otimes_K R)^\times \mid \sigma(g)Jg = J \text{ and } Nm(g) = 1 \}. \]
 
-We claim that all $G$ arrise this way, and that if $n>1$ then $G$ is uniquely determined by the invariants $(E,A,\delta, \left\vert r_\nu-s_\nu\right\vert)$ where $\delta \in K^\times/(K^\times)^nN_{E/K}(E^\times)$ subject only to the condition that $(-1)^{r_\nu-s_\nu}\delta$ is positive at all the real places of $K$ which ramify in $E$.
+We claim that all $G$ arise this way, and that if $n>1$ then $G$ is uniquely determined by the invariants $(E,A,\delta, \left\vert r_\nu-s_\nu\right\vert)$ where $\delta \in K^\times/(K^\times)^nN_{E/K}(E^\times)$ subject only to the condition that $(-1)^{r_\nu-s_\nu}\delta$ is positive at all the real places of $K$ which ramify in $E$.
 
 The forms of $G$ are in bijection with the elements of $H^1(\GalKbK, \Aut(G))$.
 
@@ -201,7 +230,13 @@ In particular we can now deduce that $H^2(\GalKbK, \mu_{n+1}^\xi)$ corresponds t
 It is precisely these algebras $A$ which admit non-trivial involutions acting non-trivially on there center.
 Indeed, in this setting we have that $A \otimes_{E,\sigma} E \simeq A^{op}$, that is if we twist the underlying $E$ algebra structure of $A$ then the resulting algebra is isomorphic to the opposite algebra of $A$ as an $E$-algebra. Let $\tau$ be the composition of the maps $A \rightarrow A \otimes_{E,\sigma} E \simeq A^{op} \rightarrow A$. This is an anti-involution on $A$, and as the map $A \rightarrow A \otimes_{E,\sigma} E $ is not a map of $E$-algebras (only of $K$-algebras) the map cannot act trivially on $E$. It must however preserve $E$ as this is the center of $A$. Thus $\tau$ restricts to $\sigma$ on $E$.
 
-TODO - ref book of involutions re conjugacy of these involutions
+\begin{remark}
+The choice of $J\in F^\sigma$ is equivalent to choosing the involution $\tau$.
+In particular, if we define $\tau'(x) = J\tau(x)J^{-1}$ then we obtain the same group using $\tau'$ and taking for $J$ the identity.
+
+Indeed, by \cite[Prop. 2.18]{The Book of Involutions TODO} all involutions on $A$ arise this way.
+Thus, the choice of $J$, can thus be thought of as choosing the involution.
+\end{remark}
 
 \begin{remark}
 It should be pointed out that the group $K^\times/(K^\times)^nN_{E/K}(E^\times)$ is trivial if either $n$ is odd or if $E = K\times K$ is split.
@@ -213,6 +248,7 @@ In terms of real places, there are two cases to consider.
 If $E=\C$, then $G$ is the automorphism group of a Hermitian space and $H^1(\GalKbK,G)$ classifies the Hermitian forms of the same discriminant as that defining $G$, as above, over $\RR$ this means it classifies the signature.
 When $E=\RR$ then $G$ is the automorphism group of a free module over a division algebra, there are no forms of these hence $H^1(\GalKbK,G)$ is trivial. 
 
+TODO book of involutions 29.20 says this is trivial.
 TODO --- Find reference for this ----
 
 \begin{remark}
@@ -252,20 +288,141 @@ How isomorphism classes pair off is controlled by $(\delta_1,\delta_2)$.
 
 
 
-
+\subsection{Quadratic Spaces}
  
 
+Fix a free $K$-module $V$ of dimension $n$. In characteristic not $2$ to give a quadratic module structure on $K$ is equivalent to giving a non-degenerate symetric $K$-valued $K$-bilinear pairing $B$ on $V$.
+
+$O(B) = \Aut(V,B)$ and $SO(H) = \Aut(V,B,\det)$ where $\det$ refers to the $K$-module determinant on $V$.
+
+The forms of $V$ are in bijection with $H^1(\GalKbK, \Aut(V,O))$.
+We have an exact sequence:
+\[ 1 \rightarrow SO(B) \rightarrow O(B) \rightarrow \mu_2  \rightarrow 1. \]
+This induces an exact sequence:
+\[ \ldots \rightarrow H^1(\GalKbK,SO(B))  \rightarrow H^1(\GalKbK,O(B))  \rightarrow H^1(\GalKbK,\mu_2 ) \rightarrow \ldots. \]
+We have an isomorphism $H^1(\GalKbK, \{\pm1\}) = K^\times/(K^\times)^2$ and we shall refer to the associated invariant of $B$ as the discriminant.
+We thus have that the cohomology set $H^1(\GalKbK,SO(B))$ classifies forms with the same discriminant as $B$.
+The group $SO(B)$ has a simply connected cover $Spin(B)$, and there is an exact sequence:
+\[ \ldots \rightarrow H^1(\GalKbK,Spin(B))  \rightarrow H^1(\GalKbK,SO(B))  \rightarrow H^2(\GalKbK \mu_2 ).\]
+The group $H^2(\GalKbK,\{ \pm 1 \} )$ classifies quaternion algebras over $K$, we may thus associate to our form a quaternion algebra, which we shall refer to as the Hasse invariant.
+The set $H^1(\GalKbK,Spin(B)) $ then parameterizes forms with the same discriminant and Hasse invariant. As the group is simply connected, such forms are controlled at the real places of $K$, they are parametrized by the signature $(r_\nu,s_\nu)$.
+
+We summarize the above with the following well known proposition.
+\begin{proposition}
+Fix a free $K$-module $V$.
+Quadratic structures on $V$ are classified up to isomorphism by their discriminants $\delta \in K^\times/(K^\times)^2$, Hasse invariants $[A] \in  H^2(\GalKbK,\{ \pm 1 \} )$ and their signatures $(s_\nu,r_\nu)$ at real places of $K$ which ramify in $E$.
+Moreover, $\delta$ may be computed as the determinant of the Grahm matrix whereas $s_\nu$ and $r_\nu$ are respectively the number of positive and negative eigenvalues of the Grahm matrix in diagonal form.
+The Hasse invariant may be computed as $\prod_{i<j}(e_i,e_j)$ where $e_i,e_j$ are the eigenvalues for a Grahm matrix in diagonal form.
+\end{proposition}
+
+\begin{remark}
+There are several subtly different ways to define the Hasse (or Witt or Hasse-Witt) invariant, these typically differ by multiplication in the Brauer group by a constant depending on the discriminant.
+The one we have given is not equal to the coboundary map for the exact sequence above.
+\end{remark}
 
 
+\subsection{Orthogonal Groups}
 
+We shall be making use of orthogonal groups in even dimensions.
+For the purpose of this paper an even dimensional orthogonal group means a non-simply connected, non-adjoint group of type $D_n$. When $n\neq 4$ is even we additionally require that the kernel of the map from the simply connected cover be the same as the kernel of its vector representation.
 
-\item Quadratic Forms are ...their invariants over (local fields, global fields) are...
-\item Orthogonal Groups are ...their invariants over (local fields, global fields) are...
-\item Connections between orthogonal and unitary groups.
+\begin{remark}
+When $n=1$ this group is $PSL_2$, when $n=2$ this group $SL_2\times SL_2/\pm1$, when $n=3$ this group is $PSL_4$.
+\end{remark}
+
+\begin{remark}
+When $n$ is even the center of the simply connected cover is $(\ZZ/2\ZZ)^2$ (possibly twisted), when it is odd it is $(\ZZ/4\ZZ)$ (possibly twisted), hence we only need the additional conditions clarifying which quotients we consider in teh case of $n$ even.
+In any case, as our quotient group is rational, the kernel from the simply connected cover is $\ZZ/2\ZZ$ (not twisted).
+\end{remark}
+
+When $n>1$ the outer automorphism group of such a group has order $2$.
+\begin{remark}
+Note that the triality automorphisms of $D_4$ does not descend to this quotient as the triality automorpism acts as the automorphism group of $(\ZZ/2\ZZ)^2$ on the center of the spin group. Thus no outer twist with non-trivial action via a three cycle contains rational elements in the center.
+\end{remark}
+
+We may construct the orthogonal groups as defined above as follows. Fix the following:
+\begin{itemize}
+\item A quaternion algebra $A$ over $K$ (we allow $M_2(K)$).
+\item Fix an orthogonal involution $\tau$ of $A$, for a quaternion algebra take $\tau(x) = i\sigma(x)i^{-1}$ for any $i\in A$ with $\sigma(i) = -i$, for $\sigma$ the standard involution of $A$, for the matrix algebra take $\tau$ to be the transpose.
+
+(An involution is orthogonal if the space of elements $x\in A$ with $\tau(x) = x$ has dimension $n(n+1)/2$ over $K$, otherwise it is symplectic and this dimension is $n(n-1)/2$ see \cite[2.6]{TODO the book of involutions}).
+\item An element $J \in M_{n}(A)^\times$ such that $J = \tau(J^t)$.
+Note that choosing $J$ is equivalent to the choice of orthogonal involution $\tau$.
 \end{itemize}
+Define then $\tilde{G}$ to be the group scheme whose points over a $K$-algebra $R$ are given by:
+\[ \tilde{G}(R) = \{ g\in (M_{n}(A) \otimes_K R)^\times \mid \tau(g^t)Jg = J  \}. \]
+Its connected component is the group scheme:
+\[ G(R) = \{ g\in (M_{n}(A) \otimes_K R)^\times \mid \tau(g^t)Jg = J  \text{ and } Nm(g) = 1 \}. \]
+We shall denote the simply connected cover by $\hat{G}$.
+
+We claim that all orthogonal groups arise this way (note that $\hat{G}$ admits further forms in the case $n=4$).
+
+The outer automorphism group of such a group has order $2$.
+It is generated by an element of $\tilde{G}\setminus G$.
+We thus have an exact sequence:
+\[ 1 \rightarrow \mu_2 \rightarrow \tilde{G} \rightarrow \Aut(G) \rightarrow 1 \]
+from which we derive the exact sequence:
+\[\ldots \rightarrow H^1(\GalKbK,\mu_2) \rightarrow  H^1(\GalKbK, \tilde{G})  \rightarrow  H^1(\GalKbK, \Aut(G)) \rightarrow  H^2(\GalKbK, \mu_2)  \]
+We may thus associate to $G$ a quaternion algebra $A$, and an element of of the cohomology set $H^1(\GalKbK, \tilde{G})$ modulo the action of the cohomology group $H^1(\GalKbK,\mu_2)$.
+
+By \cite[29.16]{TODO - The book of involutions}
+the cohomology set $H^1(\Gamma, Isom(A,\tau)) = H^1(\Gamma,\tilde{G}) $ classifies the '$\tau$-symmetric elements of $A^\times$' up to change of basis.
+The action of $H^1(\GalKbK,\mu_2) $ is to rescale these by an element of $k^\times/(k^\times)^2$.
+\begin{remark}
+When $A$ is split, this is nothing other than the classification of quadratic forms up to rescaling as above.
+In even dimensions, this depends on the discriminant and the base change of the Hasse invariant to `discriminant' algebra.
+
+When $A$ is a quaternion algebra, the analysis proceeds as above, and we may still associate to $G$ a discriminant, a quaternion algebra and signature information. 
+As we shall not need it in the sequel, we omit the details, but remark that among other simplifications, $J$ can be taken to be diagonal, and the diagonal entries can be rescaled by $(K^\times)^2$
+\end{remark}
 
 
-\section{Tori and \'Etale Algebras}
+\subsection{From Unitary Groups to Orthogonal Groups}
+
+In many cases unitary groups can be embedded into orthogonal groups, we shall only be making explicit use of this in the case where groups are associated to Hermitian and symmetric forms, however we present the more general situation.
+
+Fix the following data:
+\begin{itemize}
+\item An quadratic \'etale algebra $E$ over $K$ with involution $\sigma_E$.
+\item A quaternion algebra $A_0$ over $K$ with standard involution $\sigma_{A_0}$, then define $A = A_0\otimes_K E$ with an involution of the second kind $\sigma_A = \sigma_{A_0} \otimes \sigma_E$.
+(Note that all such $A$ arise uniquely this way see \cite[2.22]{TODO - book of involutions}).
+\item An element $J\in F^\sigma$ of norm $\delta$ whose minimal polynomial at a real place $\nu$ of $K$ which ramifies in $E$ has $r_\nu$ positive roots and $s_\nu$ negative roots.
+\end{itemize}
+Then define then $SU$ to be the associated unitary group whose points over a $K$-algebra $R$ are given by:
+\[ SU_J(R) = \{ g\in (A\otimes_K R)^\times \mid \sigma_A(g)Jg = J \text{ and } Nm(g) = 1 \}. \]
+
+Now, fix a $K$-division algebra $B$ with a fixed embedding of $E$ into $B$. Denote the standard involution on $B$ by $\sigma_{B}$ and define an orthogonal involution by $\tau_B(x) = y\sigma(x)y^{-1}$, where $y\in E$ has $\sigma_B(y) = -y$.
+
+Now define the algebra $C = A_0 \otimes_K B$, the involution $\sigma_C = \sigma_{A_0} \otimes \sigma_B$ is the standard involution and the involution $\tau_C = \sigma_{A_0} \otimes \tau_B$ is an orthogonal involution.
+Both $\sigma_C$ and $\tau_C$ restrict to $\sigma_A$ on the embedded image of $A$ in $C$.
+
+We may thus define the group schemes $SO_J$ and $SP$:
+\[ SO_J(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \tau_C(g^t)Jg = J  \} \]
+and
+\[ SP(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \sigma_C(g^t)Jg = J  \}. \]
+We redilly observe that $SU_J$ embedds naturally into both of these groups.
+\begin{remark}
+The group $SP$ is a symplectic group, its isomorphism class does not depend on $J$.
+\end{remark}
+
+\begin{remark}
+In the special case where $A_0$ and $B$ are split, so that $SU_J$ is the special unitary group of an $E$-valued Hermitian form $H$ associated to $J$ then
+$SO_J$ is the orthogonal group associated to the $K$-valued bilinear form $B(z_1,z_2) = \Tr_{E/K}(H(z_1,z_2))$ and the group $SP$ is the symplectic group associated to the symplectic form $S(z_1,z_2) = \Tr_{E/K}(H(yz_1,z_2))$.
+
+Note that given $SO_J$ or $SP$, and the $E$-module structure on the standard representations, the group $SU_J$ may be recovered.
+Note also that $U_J = SO_J \cap SP$.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+\section{\'Etale Algebras  associated to Tori in Algebra Groups}
 
 Let $T$ be a torus defined over $K$, $V$ a vector space over $K$ and $\rho : T \rightarrow \GL(V)$ an inclusion of $K$-groups.  After diagonalizing the image of $\rho$ over $\Kb$, projecting onto each coordinate gives a finite set of characters of $T$; let $X$ denote the set of characters arising in this way. 
 
