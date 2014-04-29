@@ -131,6 +131,8 @@ The problem of giving a classification and/or characterization of algebraic tori
 
 \section{Definitions, Notation and Background}
 
+\TODO{Many well known results are still stated without proof here}
+
 \TODO{} Decide which of the following to define/give notations for, we probably don't need all of it. Some of it can be postponed until the sections where it is used.
 \begin{itemize}
 \item Explain our notation for fields and \'etale algebras: $\aK$, $\gK$, $\lK$, $\fK$, $\aL$, $\gL$, $\lL$, $\fL$, $\aE$, $\gE$, $\lE$, $\fE$, $\aV$, $\gV$, $\lV$, $\fV$.
@@ -139,6 +141,20 @@ The problem of giving a classification and/or characterization of algebraic tori
 
 
 \end{itemize}
+
+\subsection{Key Results in Galois Cohomology}
+
+We shall make frequent use of the following results of Galois cohomology.
+
+\TODO{Hasse Principle} The map from Global to local is injective.
+\TODO{Simply Connected Local Fields Thing} $H^1(G)$ is trivial if $G$ simply connected at a non-real local field
+\TODO{Simply connected real fields results} I feel someone has given an interpretation in terms of "indexes" of groups...
+
+optional:
+\TODO{H1 classifies torsors}
+\TODO{remarks re twisting}
+\TODO{H1 and H2 for relevant tori, restrictions of scalars and norms} (possibly in a later section?)
+
 
 \subsection{Tori and \'Etale Algebras}
 
@@ -198,12 +214,21 @@ Fix the following:
 \begin{itemize}
 \item An quadratic \'etale algebra $E$ over $K$.
 \item A central simple $E$-algebra $A$ of degree $n$ with anti-involution $\sigma$ restricting to the non-trivial involution of $E$.
-\item An element $J\in F^\sigma$ of norm $\delta$ whose minimal polynomial at a real place $\nu$ of $K$ which ramifies in $E$ has $r_\nu$ positive roots and $s_\nu$ negative roots.
+
+         Though unnecissary at this point, we note that for simplicity one is free to suppose that $\sigma$ has discriminant $1$ and is positive at all the real places of $K$ which ramify in $E$.
+         By the disciminant of $\sigma$ we mean the norm from $A$ to $K$ of an element $a$ with $\sigma(a)=-a$, by \cite[TODO]{book of involutions} this is well defined up to $N_{E/K}(E^\times)(K^\times)^n$. To say the involution is positive we mean that $a\sigma(a) \ge 0$.
+     
+\item An element $J\in A^\sigma$ of norm $\delta$ whose minimal polynomial at a real place $\nu$ of $K$ which ramifies in $E$ has $r_\nu$ positive roots and $s_\nu$ negative roots.
 \end{itemize}
 Define then $G$ to be the group scheme whose points over a $K$-algebra $R$ are given by:
 \[ G(R) = \{ g\in (A\otimes_K R)^\times \mid \sigma(g)Jg = J \text{ and } Nm(g) = 1 \}. \]
 
-We claim that all $G$ arise this way, and that if $n>1$ then $G$ is uniquely determined by the invariants $(E,A,\delta, \left\vert r_\nu-s_\nu\right\vert)$ where $\delta \in K^\times/(K^\times)^nN_{E/K}(E^\times)$ subject only to the condition that $(-1)^{r_\nu-s_\nu}\delta$ is positive at all the real places of $K$ which ramify in $E$.
+\begin{theorem}
+All forms of $G$ arise this way. Moreover, if $n>1$ then $G$ is uniquely determined by the invariants $(E,A,\delta, \left\vert r_\nu-s_\nu\right\vert)$ where $\delta \in K^\times/(K^\times)^nN_{E/K}(E^\times)$ subject only to the condition that $(-1)^{r_\nu-s_\nu}\delta$ is positive at all the real places of $K$ which ramify in $E$.
+\end{theorem}
+\cite[TODO]{book of involutions}
+
+The cohomological interpretation of the above theorem is as follows:
 
 The forms of $G$ are in bijection with the elements of $H^1(\GalKbK, \Aut(G))$.
 
@@ -240,7 +265,7 @@ Thus, the choice of $J$, can thus be thought of as choosing the involution.
 
 \begin{remark}
 It should be pointed out that the group $K^\times/(K^\times)^nN_{E/K}(E^\times)$ is trivial if either $n$ is odd or if $E = K\times K$ is split.
-Further, for local fields at least one of $K^\times/(K^\times)^nN_{E/K}(E^\times)$ or $H^2(\GalKbK, T_{E,\sigma}) $ is trivial.
+Further, for local fields at least one of $K^\times/(K^\times)^nN_{E/K}(E^\times)$ or $H^2(\GalKbK, T_{E,\sigma}) $ is trivial. In the case of $H^2(\GalKbK, T_{E,\sigma}) $ trivial, the algebra $A$ is the matrix algebra, and the element of $K^\times/(K^\times)^nN_{E/K}(E^\times)$ is giving the discriminant of the involution, equivalently, the discriminant of the Hermitian space.
 \end{remark} 
 
 Finally, we must consider the group $H^1(\GalKbK,G)$. As $G$ is simply connect, this is only non-trivial at the real places of $K$.
@@ -316,8 +341,8 @@ The Hasse invariant may be computed as $\prod_{i<j}(e_i,e_j)$ where $e_i,e_j$ ar
 \end{proposition}
 
 \begin{remark}
-There are several subtly different ways to define the Hasse (or Witt or Hasse-Witt) invariant, these typically differ by multiplication in the Brauer group by a constant depending on the discriminant.
-The one we have given is not equal to the coboundary map for the exact sequence above.
+There are several subtly different ways to define the Hasse (or Witt or Clifford) invariant, these typically differ by multiplication in the Brauer group by a constant depending on the discriminant.
+The one we have given (the standard definition of the Hasse invariant) is not equal to the coboundary map for the exact sequence above.
 \end{remark}
 
 
@@ -355,7 +380,13 @@ Its connected component is the group scheme:
 \[ G(R) = \{ g\in (M_{n}(A) \otimes_K R)^\times \mid \tau(g^t)Jg = J  \text{ and } Nm(g) = 1 \}. \]
 We shall denote the simply connected cover by $\hat{G}$.
 
-We claim that all orthogonal groups arise this way (note that $\hat{G}$ admits further forms in the case $n=4$).
+\begin{theorem}
+All forms of $G$ arise this way. (note that $\hat{G}$ admits further forms in the case $n=4$).
+\end{theorem}
+\cite[TODO]{book of involutions}
+
+
+The cohomological interpretation of this result is as follows:
 
 The outer automorphism group of such a group has order $2$.
 It is generated by an element of $\tilde{G}\setminus G$.
@@ -370,9 +401,9 @@ the cohomology set $H^1(\Gamma, Isom(A,\tau)) = H^1(\Gamma,\tilde{G}) $ classifi
 The action of $H^1(\GalKbK,\mu_2) $ is to rescale these by an element of $k^\times/(k^\times)^2$.
 \begin{remark}
 When $A$ is split, this is nothing other than the classification of quadratic forms up to rescaling as above.
-In even dimensions, this depends on the discriminant and the base change of the Hasse invariant to `discriminant' algebra.
+In even dimensions, this depends on the discriminant and the base change of the Hasse invariant to the `discriminant' algebra.
 
-When $A$ is a quaternion algebra, the analysis proceeds as above, and we may still associate to $G$ a discriminant, a quaternion algebra and signature information. 
+When $A$ is a quaternion algebra, the analysis proceeds as above, and we may still associate to $G$ a discriminant, a central simple algebra (which is $2$-torsion if $n$ is even, and $4$-torsion when $n$ is odd) and signature information. 
 As we shall not need it in the sequel, we omit the details, but remark that among other simplifications, $J$ can be taken to be diagonal, and the diagonal entries can be rescaled by $(K^\times)^2$
 \end{remark}
 
@@ -772,6 +803,54 @@ Is there a meaningfull interpretation of the clifford algebra in this context?
 Can we interpret it as telling us about a quaternioninc symplectic group embedding of the unitary group?
 \end{remark}
 
+
+\subsection{Classification of Tori in Unitary Groups}
+
+\begin{theorem}
+Let $(E,A,\tau)$ be a triple consisting of a quadratic \'etale algebra $E$, a degree $n$ central simple algebra $A$ over $E$ with an involution $\tau$ of $A$ which restricts to the unique non-trivial involution on $E$. Let $U_{E,A,\tau}$ be the associated unitary group. Let $\delta_{\tau} \in K^\times/N_{E/K}(E^\times)$ denote the discriminant of $\tau$.
+
+Let $(E,M_n,\tilde{\tau})$ be the triple consisting of $E$, the matrix algebra of degree $n$ over $E$, and an involution $\tilde{\tau}$ of disciminant $\delta_{\tau}$ so that $U_{E,A,\tau}$ is the unitary group for the $E$-Hermitian space of discriminant $\delta_{\tau}$.
+
+The rational conjugacty classes of maximal tori in $U_{E,A,\tau}$ are naturally identified with a subset of those of $U_{E,M_n,\tilde{\tau}}$.
+The tori in $U_{E,M_n,\tilde{\tau}}$ are assicated to triples $(F,\sigma,\lambda)$, the rational conjugacy classes of tori in $U_{E,A,\tau}$ are precisely the subset for which $(F,\sigma)\hookrightarrow (A,\tau)$, equivalently, the subset for which $F$ splits $A$.
+
+The tori associated to $(F,\sigma,\lambda)$ in $U_{E,A,\tau}$ is the same as that in $U_{E,M_n,\tilde{\tau}}$ in particular they are $T_{F,\sigma}$, fixing an embedding $\rho : F \rightarrow A$, and an involution $\hat\tau$ of disciminant $1$ the conjugacy classes correspond to the image of $T_{F,\sigma}$ in $U_{E,A,\tau} \subset A$ where $U_{E,A,\tau}$ is defined comes from $\tau(x) = \rho(\lambda^{-1})\hat\tau(x)\rho(\lambda)$.
+
+The tori in $SU_{E,A,\tau}$ are the subtori $T_{F,\sigma,N_{F/E}}$.
+\end{theorem}
+\begin{proof}
+The proof is clear locally in terms of existence. 
+(Cite a result re embedding of algebras).
+
+Local existance -> global existance is easy, as $\lambda \in F$ places $\lambda \in A$ so as to allow us to define the involution, which has the correct local invariants and thus gives the correct unitary group.
+
+Local conjugacy class statement requires knowing conjugacy classes in the local non-split algebra setting. 
+The exact sequence $H^1(F) \rightarrow H^1(Aut(A,F)) \rightarrow H^1(Aut(F))$ tells us these are all conjugate.
+A direct argument of this claim would be nice.
+(Conjugacy of maximal \'etale sub-algebras of central simple algebras must be known).
+
+Global conjugacy class statement is then only claiming there are not more conjugacy classes than this, as global conjugacy would imply local conjugacy.
+It is "clear" they are conjugate if they differ by a norm of $F$, because this element can be used to "change" basis.
+(This is basically the Hasse principal in this case).
+\end{proof}
+
+\begin{remark}
+The cohomological interpretation of this result is as follows.
+
+We have shows already that rational conjugacy classes of tori in $U_{E,A,\tau}$ correspond to distinguished subalgebras with involution $(F,\sigma)$.
+Following the book of involutions (TODO-cite), we may classify pairs of $((E,A,\tau),(F,\sigma))$ by $H^1(Aut_K((E,A,\tau),(F,\sigma)))$.
+
+There is an exact sequence:
+\[ 1 \rightarrow T_{F,\sigma} \rightarrow Aut_K((E,A,\tau),(F,\sigma)) \rightarrow Aut_K(F,\sigma) \rightarrow 1 \]
+An element of $H^1(Aut_K(F,\sigma))$ specifies an \'etale algebra $F$, the element of $H^1(T_{F,\sigma})$ determines the conjugacy class.
+
+The elements of $H^1( Aut_K((E,A,\tau),(F,\sigma)))$ giving tori in $U_{E,A,\tau}$ is precisely the kernel of the map to $H^1(Aut_K((E,A,\tau))$.
+
+If we choose to work as in  (TODO cite reeder) with pure inner forms,
+We set $N$ to be the normalizer in $U_{E,A,\tau}$ of $T_{F,\sigma}$ and $Z$ be the center of $U_{E,A,\tau}$, we obtain an exact sequence:
+\[ 1 \rightarrow Z \rightarrow N \rightarrow Aut_K((E,A,\tau),(F,\sigma)) \rightarrow 1 \]
+That the tori in $U_{E,A,\tau}$ correspond to elements in the kernel of the map from $H^1(N)$ to $H^1(U_{E,A,\tau})$ is equivalent to the claim that there is a unique element of $H^1(Z)$ whose image is in this kernel so that we have an isomorphism from this kernel in $H^1(N)$ to the above kernel in $Aut_K((E,A,\tau),(F,\sigma))$. This claim about the elements of $H^1(Z)$ follows by observing that elements of $H^1(Z)$ are describing the discriminant of the unitary group.
+\end{remark}
 
 
 
