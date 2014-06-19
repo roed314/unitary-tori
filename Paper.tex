@@ -24,6 +24,8 @@
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{remark}[theorem]{Remark}
 
+\numberwithin{equation}{section}
+
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\val}{val}
 \DeclareMathOperator{\HH}{H}
@@ -150,8 +152,6 @@ The problem of giving a classification and/or characterization of algebraic tori
 
 Let $T$ be a torus defined over $K$, $V$ a vector space over $K$ and $\rho : T \rightarrow \GL(V)$ an inclusion of $K$-groups.  After diagonalizing the image of $\rho$ over $\Kb$, projecting onto each coordinate gives a finite set of characters of $T$; let $X$ denote the set of characters arising in this way. 
 
-Associated to this data there exists an \'etale algebra $E$ over $K$, inclusions $\rho'' : E \hookrightarrow \End(V)$ and $\rho' : T \rightarrow T_E$ for which $\rho = \rho''\circ\rho'$.
-
 \begin{proposition} \label{prop:etale-construction}
 The following constructions produce isomorphic \'etale algebras $E$ over $K$:
 \begin{enumerate}
@@ -168,49 +168,58 @@ The converse can be checked over the algebraic closure, using flatness and dimen
 The equivalence of \eqref{prop:etale-construction1} and \eqref{prop:etale-construction3} follows from the characterization of \'etale algebras by Galois descent.
 \end{proof}
 
-From description \eqref{prop:etale-construction2}, we obtain inclusions $\rho'' : E \hookrightarrow \End(V)$ and $\rho' : T \rightarrow T_E$ which satisfy $\rho = \rho''\circ\rho'$.  Furthermore, if $\dim_K E = \dim_K V$ then $\rho''$ gives $V$ the structure of a rank-$1$ $E$-module.
+From description \eqref{prop:etale-construction2}, we obtain inclusions $\rho_V : E \hookrightarrow \End(V)$ and $\rho_E : T \rightarrow T_E$ which satisfy $\rho = \rho_V \circ\rho_E$.  Furthermore, if $\dim_K(E) = \dim_K(V)$ then $\rho_V$ gives $V$ the structure of a rank-$1$ $E$-module.
 
 \subsection{Structures on $E$}
 
-The choice of representation $\rho$ determines structures on $E$.
+Let $B : V \times V \rightarrow K$ be a non-degenerate bilinear form, and write $\sigma$ for the adjoint involution on $\End(V)$ relative to $B$.
 
 \begin{proposition}
-Let $B : V_K \times V_K \rightarrow K$ be a non-degenerate bilinear form preserved by the image of $\rho$ then the adjoint involution on $\End(V_K)$ (relative to $B$) defines an involution $\sigma$ on $E$.
-Moreover, $T \rightarrow T_{E\sigma} \rightarrow T_E$ is a factorization of the map $\rho'$.
+If $B$ is preserved by the image of $\rho$ then $\sigma$ induces an involution on $E$, which we will also denote $\sigma$.
+Moreover, the inclusion $\rho_E$ factors as $T \hookrightarrow T_{E, \sigma} \hookrightarrow T_E$.
 \end{proposition}
 \begin{proof}
-Denote by $\sigma$ the adjoint involution on $\End(V_K)$.
-We are given that $B(x,y) = B(\rho(t)x,\rho(t)y) = B(x,\sigma(\rho(t))\rho(t)y)$ for all $x$ and $y$. By the non-degeneracy of $B$ this implies $\sigma(\rho(t))\rho(t)$ is the identity and thus $\sigma(\rho(t)) = \rho(t)^{-1}$. Thus, $\sigma$ takes $T$ to $T$. by the naturality of the construction of $E$ above $\sigma$ takes $E$ to $E$.
+Suppose that $t \in T(K)$.  For all $x, y \in V$, we have $B(x,y) = B(\rho(t)x,\rho(t)y) = B(x,\sigma(\rho(t))\rho(t)y)$.  The non-degeneracy of $B$ implies that
+\begin{equation} \label{eq:Tstable}
+\sigma(\rho(t)) = \rho(t)^{-1},
+\end{equation}
+and thus $\sigma$ stabilizes $T(K)$.  By the naturality of the construction of $E$, the involution $\sigma$ must also stabilize $E$.
 
-It is now clear that $\rho(T) \subset T_{E,\sigma}$.
+The image of $T$ under $\rho_E$ lies within $T_{E,\sigma}$ by \eqref{eq:Tstable}.
 \end{proof}
 
-
+Let $A$ be a commutative $K$-algebra and that $V$ has the structure of an $A$-module.  Then $\End_A(V) \subseteq \End(V)$.
 
 \begin{proposition}
-Let $A$ be an algebra over $K$ and suppose $V_K$ has the structure of an $A$-module.
-Suppose $\rho(T)$ embeds into $\End_A(V_K)$ then $E\hookrightarrow \End_A(V_K)$.
 
-Suppose $\rho(T)$ commutes with the action of $A$, then the image of $E$ commutes with the action of $A$.
-If moreover the $K$-dimension of $E$ equals that of $V$ this also gives $E$ the structure of an $A$-algebra.
+\begin{enumerate}
+\item If $\rho(T) \subset \End_A(V)$, then $\rho_V(E) \subset \End_A(V)$.
+%\item If $\rho(T)$ commutes with the action of $A$, then so does $\rho_V(E)$.
+\item If $\dim_K(E) = \dim_K(V)$, then the action of $A$ on $V$ gives $E$ the structure of an $A$-algebra.
+\end{enumerate}
 \end{proposition}
 \begin{proof}
-By naturality of construction if $\rho(T)$ acts by $A$ endomorphisms then so too does $E$.
-Likewise if $\rho(T)$ commutes with the action of $A$, then so too does $E$.
+By naturality of construction, if $\rho(T)$ acts by $A$-endomorphisms, then so too does $\rho_V(E)$.
+%Likewise, if $\rho(T)$ commutes with the action of $A$, then so too does $\rho_V(E)$.
 
-Finally, if $K$-dimensions are equal, then by identifying $V_K$ with $E$ we have given $E$ the structure of an $A$-module. Since the $A$ and $E$ multiplication commute, we are giving $E$ the structure of an $A$-algebra.
+Moreover, if $\dim_K(E) = \dim_K(V)$, then any $E$-linear identification of $V$ with $E$ induces an $A$-module structure on $E$.  Since $\rho_V(E)$ commutes with the action of $A$, $E$ is actually an $A$-algebra.
 \end{proof}
-\begin{remark}
-The case of non-commutative $E$ is mostly relevant to inner forms of symplectic groups.
-In what follows we will assume $A$ is a commutative algebra over $K$.
-\end{remark}
+%\begin{remark}
+%The case of non-commutative $E$ is mostly relevant to inner forms of symplectic groups.
+%In what follows we will assume $A$ is a commutative algebra over $K$.
+%\end{remark}
+
+Now suppose that $A$ be a quadratic algebra over $K$ and the assumptions of both of the previous propositions hold: $V$ has the structure of an $A$-module,  $B : V \times V \rightarrow A$ is a non-degenerate Hermitian form.
 
 \begin{proposition}
-Let $A$ be a quadratic algebra over $K$. Suppose $V_K$ has the structure of an $A$-module, and $B : V_K \times V_K \rightarrow A$ is a non-degenerate Hermitian form.
-Suppose  $\rho(T)$ preserves $B$ then $E\hookrightarrow \End_A(V_K)$, the image of $E$ commutes with the action of $A$,  $E$ has the structure of an $A$-algebra, and the involution on $E$ restricts to that on $A$.
+\begin{enumerate}
+\item If $B$ is preserved by the image of $\rho$ then $\rho(T) \subset \End_A(V)$ and thus $\rho_V(E) \subset \End_A(V)$.
+\item If $\dim_K(E) = \dim_K(V)$ then $E$ is an $A$-algebra and the involution on $E$ restricts to that on $A$.
+\end{enumerate}
 \end{proposition}
 \begin{proof}
-The only new statement here is that the involution on $E$ restricts to the involution on $A$.
+We need to prove that $\rho(T) \subset \End_A(V)$ and that the involution on $E$ restricts to the involution on $A$.
+\TODO{Prove the first claim}
 The involution on $E$ was induced by the adjoint from $B$. But the involution on $A$ is by construction the adjoint.
 \end{proof}
 \begin{remark}
@@ -574,7 +583,11 @@ However this could plausibly require that $T_0$ be split or that $U_0$ is quasi-
 
 
 
+\section{Embeddings of unitary groups in symplectic and orthogonal groups}
 
+\begin{theorem}
+Suppose $H$ is a Hermitian space
+\end{theorem}
 
 
 
