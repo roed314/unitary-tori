@@ -44,6 +44,11 @@
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\PGL}{PGL}
 \DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\SU}{SU}
+
 
 \newcommand{\mat}[4]{\left( \begin{array}{cc} {#1} & {#2} \\ {#3} & {#4}
 \end{array} \right)}
@@ -275,7 +280,6 @@ If $E=\C$, then $G$ is the automorphism group of a Hermitian space and $H^1(\Gal
 When $E=\RR$ then $G$ is the automorphism group of a free module over a division algebra, there are no forms of these hence $H^1(\GalKbK,G)$ is trivial. 
 
 TODO book of involutions 29.20 says this is trivial.
-TODO --- Find reference for this ----
 
 \begin{remark}
 Because we are dealing with non-abelian Galois cohomology when analyzing exact sequences we must twist by the cokernel elements before considering the structure of the kernel. It is for this reason that we must look at the invariants in the natural order $E$, $A$, $\delta$, signatures.
@@ -409,52 +413,15 @@ As we shall not need it in the sequel, we omit the details, but remark that amon
 \end{remark}
 
 
-\subsection{From Unitary Groups to Orthogonal Groups}
-
-In many cases unitary groups can be embedded into orthogonal groups, we shall only be making explicit use of this in the case where groups are associated to Hermitian and symmetric forms, however we present the more general situation.
-
-Fix the following data:
-\begin{itemize}
-\item An quadratic \'etale algebra $E$ over $K$ with involution $\sigma_E$.
-\item A quaternion algebra $A_0$ over $K$ with standard involution $\sigma_{A_0}$, then define $A = A_0\otimes_K E$ with an involution of the second kind $\sigma_A = \sigma_{A_0} \otimes \sigma_E$.
-(Note that all such $A$ arise uniquely this way see \cite[2.22]{TODO - book of involutions}).
-\item An element $J\in F^\sigma$ of norm $\delta$ whose minimal polynomial at a real place $\nu$ of $K$ which ramifies in $E$ has $r_\nu$ positive roots and $s_\nu$ negative roots.
-\end{itemize}
-Then define then $SU$ to be the associated unitary group whose points over a $K$-algebra $R$ are given by:
-\[ SU_J(R) = \{ g\in (A\otimes_K R)^\times \mid \sigma_A(g)Jg = J \text{ and } Nm(g) = 1 \}. \]
-
-Now, fix a $K$-division algebra $B$ with a fixed embedding of $E$ into $B$. Denote the standard involution on $B$ by $\sigma_{B}$ and define an orthogonal involution by $\tau_B(x) = y\sigma(x)y^{-1}$, where $y\in E$ has $\sigma_B(y) = -y$.
-
-Now define the algebra $C = A_0 \otimes_K B$, the involution $\sigma_C = \sigma_{A_0} \otimes \sigma_B$ is the standard involution and the involution $\tau_C = \sigma_{A_0} \otimes \tau_B$ is an orthogonal involution.
-Both $\sigma_C$ and $\tau_C$ restrict to $\sigma_A$ on the embedded image of $A$ in $C$.
-
-We may thus define the group schemes $SO_J$ and $SP$:
-\[ SO_J(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \tau_C(g^t)Jg = J  \} \]
-and
-\[ SP(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \sigma_C(g^t)Jg = J  \}. \]
-We redilly observe that $SU_J$ embedds naturally into both of these groups.
-\begin{remark}
-The group $SP$ is a symplectic group, its isomorphism class does not depend on $J$.
-\end{remark}
-
-\begin{remark}
-In the special case where $A_0$ and $B$ are split, so that $SU_J$ is the special unitary group of an $E$-valued Hermitian form $H$ associated to $J$ then
-$SO_J$ is the orthogonal group associated to the $K$-valued bilinear form $B(z_1,z_2) = \Tr_{E/K}(H(z_1,z_2))$ and the group $SP$ is the symplectic group associated to the symplectic form $S(z_1,z_2) = \Tr_{E/K}(H(yz_1,z_2))$.
-
-Note that given $SO_J$ or $SP$, and the $E$-module structure on the standard representations, the group $SU_J$ may be recovered.
-Note also that $U_J = SO_J \cap SP$.
-\end{remark}
 
 
 
+\section{Classifying Tori in Classical Groups}
+%\section{\'Etale Algebras associated to Tori in Algebra Groups}
 
+\TODO{Edit section to align with the following goal}
 
-
-
-
-
-
-\section{\'Etale Algebras  associated to Tori in Algebra Groups}
+In this section we describe maximal tori in classical groups in terms of \'etale algebras with involutions.
 
 Let $T$ be a torus defined over $K$, $V$ a vector space over $K$ and $\rho : T \rightarrow \GL(V)$ an inclusion of $K$-groups.  After diagonalizing the image of $\rho$ over $\Kb$, projecting onto each coordinate gives a finite set of characters of $T$; let $X$ denote the set of characters arising in this way. 
 
@@ -535,7 +502,7 @@ once we impose an involution on $E$. The two cases are meaningfully distinguishe
 \end{remark}
 
 
-\subsection{Tori in Algebraic Groups}
+\subsection{Tori in algebraic groups}
 
 Let $G$ be an algebraic group over $K$ and suppose $T \hookrightarrow G$.
 Then any representation $\rho$ of $G$ restricts to a representation $\rho$ of $T$.
@@ -554,9 +521,51 @@ If the form $B$ above is Hermitian for an action of $A$ on $V_K$ then $E$ is an 
 In the split case the algebra $A$ is $K\oplus K$.
 \end{example}
 
-\section{Forms preserved by $T_{E,\sigma}$}
+\subsection{Intrinsic properties of these tori}
 
-\subsection{Shape of the Forms}
+\subsubsection{Anisotropic}
+
+\begin{proposition}
+The torus $T_{E,\sigma}$ is anisotropic if all the field factors of $E$ are $\sigma$-stable.
+\end{proposition}
+\begin{proof}
+\TODO-
+That the condition is necissary is reasonably clear, sufficiency is less obvious.
+\end{proof}
+
+\begin{example}
+Consider $E = A \times A$ where $\sigma$ acts on each factor.
+This has the structure of an $A$ algebra, where $\sigma$ restricts to $\sigma$, by the inclusion $A\hookrightarrow A\times A$:
+\[ a \mapsto (a,a) \]
+The torus $T_{E,\sigma}$ is anisotropic.
+
+\bigskip
+Consider $E = A \times A$ where $\sigma$ acts to interchange factors.
+Give this the structure of an $A$ algebra, where $\sigma$ restricts to $\sigma$, by the inclusion $A\hookrightarrow A\times A$:
+\[ a \mapsto (a,\sigma(a)) \]
+The torus $T_{E,\sigma}$ is not anisotropic.
+\end{example}
+
+
+\subsubsection{Unramified}
+
+\begin{proposition}
+The torus $T_{E,\sigma}$ is unramified if all the field factors of $E$ are unramified
+\end{proposition}
+\begin{proof}
+\TODO-
+\end{proof}
+
+
+\subsubsection{``Relatively'' unramified}
+
+Your special unramifiedness when $A/K$ was ramified.
+
+\section{Classical groups containing a fixed torus}
+
+For each torus constructed in the previous section, we describe into which classical groups it embeds.  We also describe the conjugacy classes of embeddings, both stably and rationally.
+
+\subsection{Constructing bilinear forms from tori}
 
 \begin{theorem}
 Suppose $B_1,B_2$ be bilinear (or Hermitian) forms on $E$ for which the adjoint maps $Ad_{B_1}$ and $Ad_{B_2}$ induce the same map $\sigma:E\rightarrow E$.
@@ -591,7 +600,7 @@ where $\lambda \in E^\sigma$ is a unit.
 In both cases, the isomorphism class of the form depends only on $\lambda \in (E^\sigma)^\times/N_{E/E^\sigma}(E^\times)$.
 \end{corollary}
 
-\subsection{Invariants of Hermitian Forms}
+\subsection{Invariants of the bilinear forms}
 
 \TODO - in this section we might benefit from renormalizing the form, in my experiance letting $\lambda' = \lambda/f'_z(z)$ where $z\in E^\sigma$ is such that $\sqrt{z}$ primitively generates $E$ over $K$ is a good choice.
 (Such $z$ exist outside characteristic $2$ when $E$ is a field, or $E$ is an \'etale algebra and $K$ infinite).
@@ -705,7 +714,7 @@ If $E\simeq \CC\times\CC$ with $\sigma$ interchanging factors then the signature
 \[ (1,1). \]
 \end{proposition}
 
-\subsection{Existence of Forms}
+\subsection{Embedding in different forms}
 
 \begin{theorem}
 Let $K$ be a $p$-adic field and fix $A$ a quadratic extension of $K$ (potentially split).
@@ -769,7 +778,7 @@ Finally, $\tilde{\sigma}$ lifts to an element of $\Gal(\overline{K}/K)$, giving 
 Let $K$ be a number field and fix $A$ a quadratic extension of $K$ (potentially split).
 Given $H$ a Hermitian form and $(E,\sigma)$ an \'etale algebra with involution (of the second kind) over $A$. Then there exists $\lambda \in E^\sigma$ with:
 \[ H \simeq H_{E,\sigma,\lambda} \]
-if and only if there exists $\lambda_\fp$ for all localizations $\fp$ of $K$ (both archimedian and non-archimedian).
+if and only if there exists $\lambda_\fp$ for all localizations $\fp$ of $K$ (both archimedean and non-archimedean).
 \end{theorem}
 \begin{proof}
 \TODO - complete sketch (also check that this is true).
@@ -784,7 +793,7 @@ K^\times/N_{A/K}(A^\times) \ar[r]^{(\cdot,\delta_{A/K})} & H^2(K, \pm 1) \ar[r] 
 }
 \]
 where the compositions of the horizontal maps are injective.
-We must show that an element in $K^\times/N_{A/K}(A^\times) $ is in the image of the left verticle map, provided its image is in the image of the right hand verticle map.
+We must show that an element in $K^\times/N_{A/K}(A^\times) $ is in the image of the left vertical map, provided its image is in the image of the right hand vertical map.
 We must do this in spite of the fact that the horizontal maps are not surjective.
 
 The failure of surjectivity is captured by the following, the bottom map surjects onto the kernel of the map:
@@ -802,27 +811,27 @@ Fix $\fp$ any prime of $K$ where $\tilde{\sigma}$ of Lemma \ref{Lem:liftsigma} a
 \end{proof}
 
 \begin{theorem}
-\TODO - summarize a pure global existance statement.
+\TODO{summarize a pure global existence statement.}
 \end{theorem}
 
 \begin{remark}
-\TODO - Can phrase this as: The reflex algebra splits the even clifford algebra + signature conditions.
-Is there a meaningfull interpretation of the clifford algebra in this context?
-Can we interpret it as telling us about a quaternioninc symplectic group embedding of the unitary group?
+\TODO{Can phrase this as: The reflex algebra splits the even clifford algebra + signature conditions.
+Is there a meaningful interpretation of the clifford algebra in this context?
+Can we interpret it as telling us about a quaternionic symplectic group embedding of the unitary group?}
 \end{remark}
 
 
-\subsection{Classification of Tori in Unitary Groups}
+\subsection{Rational Conjugacy of Tori}
 
 \begin{theorem}
 Let $(E,A,\tau)$ be a triple consisting of a quadratic \'etale algebra $E$, a degree $n$ central simple algebra $A$ over $E$ with an involution $\tau$ of $A$ which restricts to the unique non-trivial involution on $E$. Let $U_{E,A,\tau}$ be the associated unitary group. Let $\delta_{\tau} \in K^\times/N_{E/K}(E^\times)$ denote the discriminant of $\tau$.
 
-Let $(E,M_n,\tilde{\tau})$ be the triple consisting of $E$, the matrix algebra of degree $n$ over $E$, and an involution $\tilde{\tau}$ of disciminant $\delta_{\tau}$ so that $U_{E,A,\tau}$ is the unitary group for the $E$-Hermitian space of discriminant $\delta_{\tau}$.
+Let $(E,M_n,\tilde{\tau})$ be the triple consisting of $E$, the matrix algebra of degree $n$ over $E$, and an involution $\tilde{\tau}$ of discriminant $\delta_{\tau}$ so that $U_{E,A,\tau}$ is the unitary group for the $E$-Hermitian space of discriminant $\delta_{\tau}$.
 
-The rational conjugacty classes of maximal tori in $U_{E,A,\tau}$ are naturally identified with a subset of those of $U_{E,M_n,\tilde{\tau}}$.
-The tori in $U_{E,M_n,\tilde{\tau}}$ are assicated to triples $(F,\sigma,\lambda)$, the rational conjugacy classes of tori in $U_{E,A,\tau}$ are precisely the subset for which $(F,\sigma)\hookrightarrow (A,\tau)$, equivalently, the subset for which $F$ splits $A$.
+The rational conjugacy classes of maximal tori in $U_{E,A,\tau}$ are naturally identified with a subset of those of $U_{E,M_n,\tilde{\tau}}$.
+The tori in $U_{E,M_n,\tilde{\tau}}$ are associated to triples $(F,\sigma,\lambda)$, the rational conjugacy classes of tori in $U_{E,A,\tau}$ are precisely the subset for which $(F,\sigma)\hookrightarrow (A,\tau)$, equivalently, the subset for which $F$ splits $A$.
 
-The tori associated to $(F,\sigma,\lambda)$ in $U_{E,A,\tau}$ is the same as that in $U_{E,M_n,\tilde{\tau}}$ in particular they are $T_{F,\sigma}$, fixing an embedding $\rho : F \rightarrow A$, and an involution $\hat\tau$ of disciminant $1$ the conjugacy classes correspond to the image of $T_{F,\sigma}$ in $U_{E,A,\tau} \subset A$ where $U_{E,A,\tau}$ is defined comes from $\tau(x) = \rho(\lambda^{-1})\hat\tau(x)\rho(\lambda)$.
+The tori associated to $(F,\sigma,\lambda)$ in $U_{E,A,\tau}$ is the same as that in $U_{E,M_n,\tilde{\tau}}$ in particular they are $T_{F,\sigma}$, fixing an embedding $\rho : F \rightarrow A$, and an involution $\hat\tau$ of discriminant $1$ the conjugacy classes correspond to the image of $T_{F,\sigma}$ in $U_{E,A,\tau} \subset A$ where $U_{E,A,\tau}$ is defined comes from $\tau(x) = \rho(\lambda^{-1})\hat\tau(x)\rho(\lambda)$.
 
 The tori in $SU_{E,A,\tau}$ are the subtori $T_{F,\sigma,N_{F/E}}$.
 \end{theorem}
@@ -830,7 +839,7 @@ The tori in $SU_{E,A,\tau}$ are the subtori $T_{F,\sigma,N_{F/E}}$.
 The proof is clear locally in terms of existence. 
 (Cite a result re embedding of algebras).
 
-Local existance -> global existance is easy, as $\lambda \in F$ places $\lambda \in A$ so as to allow us to define the involution, which has the correct local invariants and thus gives the correct unitary group.
+Local existence $\to$ global existence is easy, as $\lambda \in F$ places $\lambda \in A$ so as to allow us to define the involution, which has the correct local invariants and thus gives the correct unitary group.
 
 Local conjugacy class statement requires knowing conjugacy classes in the local non-split algebra setting. 
 The exact sequence $H^1(F) \rightarrow H^1(Aut(A,F)) \rightarrow H^1(Aut(F))$ tells us these are all conjugate.
@@ -860,51 +869,62 @@ We set $N$ to be the normalizer in $U_{E,A,\tau}$ of $T_{F,\sigma}$ and $Z$ be t
 That the tori in $U_{E,A,\tau}$ correspond to elements in the kernel of the map from $H^1(N)$ to $H^1(U_{E,A,\tau})$ is equivalent to the claim that there is a unique element of $H^1(Z)$ whose image is in this kernel so that we have an isomorphism from this kernel in $H^1(N)$ to the above kernel in $Aut_K((E,A,\tau),(F,\sigma))$. This claim about the elements of $H^1(Z)$ follows by observing that elements of $H^1(Z)$ are describing the discriminant of the unitary group.
 \end{remark}
 
+\section{Embeddings of unitary groups in symplectic and orthogonal groups}
+
+\begin{itemize}
+\item When does $\U_n$ embed into $\SO_{2n}$, $\SO_{2n+1}$ and $\Sp_{2n}$.
+\item Which tori in $\SO_m / \Sp_{2n}$ are in the images these embeddings.
+\item What are the rational conjugacy classes of these embeddings, and how do the rational conjugacy classes of tori break up?
+\item Do different inner forms embed into the same place?  What is the intersection?
+
+if K is non-split then the Hasse invariant of the resulting orthogonal group depends on isomorphism class of Hermitian space and thus they don't embed into the same group.
+
+If K is split, then the resulting orthogonal space is determined entirely by the choice of quaternion algebra (split/ramified) for the construction of the unitary group. We obtain different orthogonal groups in the 2 cases.
+\TODO{check how many orthogonal group isomorphism classes in this case}
+
+Thus there is no intersection.
+
+\item Can we understand tori in adjoint forms (earlier section).  For $\SO$ and $\Sp$ you quotient by $\pm 1$ while for $\U_n$ you quotient by $\U_1$.  Describe these as subtori instead of quotients.
+\end{itemize}
+
+\subsection{From Unitary Groups to Orthogonal Groups}
+
+In many cases unitary groups can be embedded into orthogonal groups, we shall only be making explicit use of this in the case where groups are associated to Hermitian and symmetric forms, however we present the more general situation.
+
+Fix the following data:
+\begin{itemize}
+\item An quadratic \'etale algebra $E$ over $K$ with involution $\sigma_E$.
+\item A quaternion algebra $A_0$ over $K$ with standard involution $\sigma_{A_0}$, then define $A = A_0\otimes_K E$ with an involution of the second kind $\sigma_A = \sigma_{A_0} \otimes \sigma_E$.
+(Note that all such $A$ arise uniquely this way see \cite[2.22]{TODO - book of involutions}).
+\item An element $J\in F^\sigma$ of norm $\delta$ whose minimal polynomial at a real place $\nu$ of $K$ which ramifies in $E$ has $r_\nu$ positive roots and $s_\nu$ negative roots.
+\end{itemize}
+Then define then $SU$ to be the associated unitary group whose points over a $K$-algebra $R$ are given by:
+\[ SU_J(R) = \{ g\in (A\otimes_K R)^\times \mid \sigma_A(g)Jg = J \text{ and } Nm(g) = 1 \}. \]
+
+Now, fix a $K$-division algebra $B$ with a fixed embedding of $E$ into $B$. Denote the standard involution on $B$ by $\sigma_{B}$ and define an orthogonal involution by $\tau_B(x) = y\sigma(x)y^{-1}$, where $y\in E$ has $\sigma_B(y) = -y$.
+
+Now define the algebra $C = A_0 \otimes_K B$, the involution $\sigma_C = \sigma_{A_0} \otimes \sigma_B$ is the standard involution and the involution $\tau_C = \sigma_{A_0} \otimes \tau_B$ is an orthogonal involution.
+Both $\sigma_C$ and $\tau_C$ restrict to $\sigma_A$ on the embedded image of $A$ in $C$.
+
+We may thus define the group schemes $SO_J$ and $SP$:
+\[ SO_J(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \tau_C(g^t)Jg = J  \} \]
+and
+\[ SP(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \sigma_C(g^t)Jg = J  \}. \]
+We readilly observe that $SU_J$ embeds naturally into both of these groups.
+\begin{remark}
+The group $SP$ is a symplectic group, its isomorphism class does not depend on $J$.
+\end{remark}
+
+\begin{remark}
+In the special case where $A_0$ and $B$ are split, so that $SU_J$ is the special unitary group of an $E$-valued Hermitian form $H$ associated to $J$ then
+$SO_J$ is the orthogonal group associated to the $K$-valued bilinear form $B(z_1,z_2) = \Tr_{E/K}(H(z_1,z_2))$ and the group $SP$ is the symplectic group associated to the symplectic form $S(z_1,z_2) = \Tr_{E/K}(H(yz_1,z_2))$.
+
+Note that given $SO_J$ or $SP$, and the $E$-module structure on the standard representations, the group $SU_J$ may be recovered.
+Note also that $U_J = SO_J \cap SP$.
+\end{remark}
 
 
-\section{Properties of $T_{E,\sigma}$}
 
-\subsection{Anisotropic}
-
-\begin{proposition}
-The torus $T_{E,\sigma}$ is anisotropic if all the field factors of $E$ are $\sigma$-stable.
-\end{proposition}
-\begin{proof}
-\TODO-
-That the condition is necissary is reasonably clear, sufficiency is less obvious.
-\end{proof}
-
-\begin{example}
-Consider $E = A \times A$ where $\sigma$ acts on each factor.
-This has the structure of an $A$ algebra, where $\sigma$ restricts to $\sigma$, by the inclusion $A\hookrightarrow A\times A$:
-\[ a \mapsto (a,a) \]
-The torus $T_{E,\sigma}$ is anisotropic.
-
-\bigskip
-Consider $E = A \times A$ where $\sigma$ acts to interchange factors.
-Give this the structure of an $A$ algebra, where $\sigma$ restricts to $\sigma$, by the inclusion $A\hookrightarrow A\times A$:
-\[ a \mapsto (a,\sigma(a)) \]
-The torus $T_{E,\sigma}$ is not anisotropic.
-\end{example}
-
-
-\subsection{Unramified}
-
-\begin{proposition}
-The torus $T_{E,\sigma}$ is unramified if all the field factors of $E$ are unramified
-\end{proposition}
-\begin{proof}
-\TODO-
-\end{proof}
-
-
-\subsection{``Relatively'' Unramified}
-
-Your special unramifiedness when $A/K$ was ramified.
-
-\section{The Building of the Unitary Group}
-
-\subsection{The reduction of $T_{E,\sigma}$}
 
 \section{Cohomological Reinterpretation}
 
@@ -936,12 +956,6 @@ However this could plausibly require that $T_0$ be split or that $U_0$ is quasi-
 
 
 
-
-\section{Embeddings of unitary groups in symplectic and orthogonal groups}
-
-\begin{theorem}
-Suppose $H$ is a Hermitian space
-\end{theorem}
 
 
 
