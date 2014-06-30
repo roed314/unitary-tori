@@ -48,6 +48,7 @@
 \DeclareMathOperator{\SO}{SO}
 \DeclareMathOperator{\U}{U}
 \DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Clif}{Cliff}
 
 
 \newcommand{\mat}[4]{\left( \begin{array}{cc} {#1} & {#2} \\ {#3} & {#4}
@@ -153,12 +154,16 @@ The problem of giving a classification and/or characterization of algebraic tori
 We shall make frequent use of the following results of Galois cohomology.
 
 \TODO{Hasse Principle} The map from Global to local is injective.
+
 \TODO{Simply Connected Local Fields Thing} $H^1(G)$ is trivial if $G$ simply connected at a non-real local field
+
 \TODO{Simply connected real fields results} I feel someone has given an interpretation in terms of "indexes" of groups...
 
 optional:
 \TODO{H1 classifies torsors}
+
 \TODO{remarks re twisting}
+
 \TODO{H1 and H2 for relevant tori, restrictions of scalars and norms} (possibly in a later section?)
 
 
@@ -408,8 +413,40 @@ The action of $H^1(\GalKbK,\mu_2) $ is to rescale these by an element of $k^\tim
 When $A$ is split, this is nothing other than the classification of quadratic forms up to rescaling as above.
 In even dimensions, this depends on the discriminant and the base change of the Hasse invariant to the `discriminant' algebra.
 
-When $A$ is a quaternion algebra, the analysis proceeds as above, and we may still associate to $G$ a discriminant, a central simple algebra (which is $2$-torsion if $n$ is even, and $4$-torsion when $n$ is odd) and signature information. 
-As we shall not need it in the sequel, we omit the details, but remark that among other simplifications, $J$ can be taken to be diagonal, and the diagonal entries can be rescaled by $(K^\times)^2$
+More generally we may describe this as follows.
+
+Denote by $G^{\rm sc}$ and $G^{\rm ad}$ the simply connected and adjoint groups associated to $G$ and by $\pi_1(G^{\rm ad})$ the fundamental group of $G^{\rm sc}$ over $G^{\rm ad}$. Note that over the algebraic closure $\pi_1(G)$ is cyclic of order $4$ when $n$ is odd, and $(\ZZ/2\ZZ)^2$ if $n$ is odd.
+
+\TODO{get reference for exact form of $\pi_1(G)$}
+
+The map:
+\[ H^1(\GalKbK, \Aut(G)) \rightarrow H^1(\GalKbK, \pi_0(\Aut(G))) \]
+associates to a form a $G$ a discriminant, that is, a quadratic \'etale algebra $D(G)$.
+The map:
+\[ H^1(\GalKbK, G^{\rm ad}) \rightarrow H^1(\GalKbK, \pi_1(G^{\rm ad})) \]
+associates to $G$ an element of the brauer group $Br(D(G))$ which we call the (class of the) Clifford algebra.
+Based on our understanding of $ \pi_1(G^{\rm ad})$ we observe that the Clifford algebra is an algebra with an involution. 
+This involution is of the second kind if $n$ is odd, is orthogonal if $n \cong 0 \pmod{4}$ and symplectic otherwise.
+Finally, the associated class in:
+\[  H^1(\GalKbK, G^{\rm sc}),  \]
+which is supported at the real places of $K$, is the index.
+
+A more careful analysis allows us to deduce the following detailed structure theorem for the Clifford algebra over local fields.
+We remark that the following characterization allows one to recover the algebra $(A,\tau)$ from $[\Clif^+_{A,\tau}]$.
+\begin{itemize}
+\item If $n$ is even, $A$ is a matrix algebra, and the discriminant is non-trivial, then class of $[\Clif^+_{A,\tau}]$ is trivial.
+\item If $n$ is even, $A$ is not a matrix algebra, and the discriminant is non-trivial then $[\Clif^+_{A,\tau}]$ is non-trivial.
+\item If $n$ is even, $A$ is a matrix algebra, and the discriminant is trivial, then class of $[\Clif^+_{A,\tau}]$ is a direct sum of two isomorphic algebras, their trivialitity depends on the choice of $\tau$.
+\item If $n$ is even, $A$ is not a matrix algebra, and the discriminant is trivial then $[\Clif^+_{A,\tau}]$ is a direct sum of two non-isomorphic algebras in the $2$-torsion of the Brauer group, the isomorphism over the center depends on the choice of $\tau$, note that the isomorphism class over $k$ does not.
+
+\item If $n$ is odd, $A$ is a matrix algebra, and the discriminant is non-trivial, then class of $[\Clif^+_{A,\tau}]$ is trivial.
+\item If $n$ is odd, $A$ is not a matrix algebra, and the discriminant is non-trivial then $[\Clif^+_{A,\tau}]$ is trivial.
+\item If $n$ is odd, $A$ is a matrix algebra, and the discriminant is trivial, then class of $[\Clif^+_{A,\tau}]$ is a direct sum of two isomorphic algebras in the $2$-torsion of the Brauer group, their trivialitity depends on the choice of $\tau$.
+\item If $n$ is odd, $A$ is not a matrix algebra, and the discriminant is trivial then $[\Clif^+_{A,\tau}]$ is a direct sum of two non-isomorphic algebras which are $4$-torsion, the isomorphism over the center depends on the choice of $\tau$, note that the isomorphism class over $k$ does not.
+\end{itemize}
+See \cite[Thm 9.12]{book_of_involutions}.
+
+The structure over a global field can then be deduced from this, as the global structure is determined by the local structure.
 \end{remark}
 
 
