@@ -630,12 +630,80 @@ Hence, by the uniqueness of $\lambda$ from above, $\lambda=\sigma(\lambda)$.
 \end{proof}
 \begin{corollary}
 All the non-degenerate symmetric bilinear forms on $E$ are of the form:
-\[ Tr_{E/K}(\lambda x\sigma(y) \]
+\[ Tr_{E/K}(\lambda x\sigma(y)) \]
 All the non-degenerate Hermitan forms on $E$ are of the form:
-\[ Tr_{E/A}(\lambda x\sigma(y) \]
+\[ Tr_{E/A}(\lambda x\sigma(y)) \]
 where $\lambda \in E^\sigma$ is a unit.
 In both cases, the isomorphism class of the form depends only on $\lambda \in (E^\sigma)^\times/N_{E/E^\sigma}(E^\times)$.
 \end{corollary}
+
+
+\subsubsection{Algebra's with involutions}
+
+\begin{theorem}
+Let $A$ be a central simple algebra over $K$.
+Let $E$ be an \'etale algebra over $k$ which embeds into $A$ as a maximal \'etale subalgebra.
+Suppose $\tau_1,\tau_2$ are two involutions on $A$ which preserve $E$ and such that $\tau_1|_E = \tau_2|_E$ then:
+\[ \tau_1 = {\rm Int}_\lambda\circ\tau_2 \]
+for some $\lambda \in E^\times$.
+\end{theorem}
+\begin{proof}
+Via the classification of involutions on $A$
+\TODO{cite book of involutions or above}
+ we know $\tau_1 = {\rm Int}_\lambda\circ\tau_2$ for $\lambda \in A^\times$.
+
+However, since $\tau_1$ and $\tau_2$ both preserve $E$ it follows that ${\rm Int}_\lambda$ must preserve $E$ and thus at least normalize $E$.
+Moreover, as $\tau_1|_E = \tau_2|_E$ we find that ${\rm Int}_\lambda$ acts trivially on $E$ and thus $\lambda$ centralizes $E$. We conclude that $\lambda\in E$ by checking over the algebraic closure.
+\end{proof}
+
+\begin{theorem}
+If the involutions $\tau_1$ and $\tau_2$ are both orthogonal or both Hermitian then $\sigma(\lambda) = \lambda$.
+
+If one of $\tau_1$ is simplectic, the other orthogonal, then $\sigma(\lambda) = -\lambda$.
+\end{theorem}
+
+\begin{corollary}
+Fixing any one involution $\tau$ on $A$ (either orthogonal or Hermitian) preserving $E$.
+All of the involutions on $A$ preserving $E$ are of the form:
+\[ {\rm Int}_\lambda\circ\tau \]
+where $\lambda \in (E^\sigma)\times$.
+\end{corollary}
+
+\begin{theorem}
+Let $A$ be a central simple algebra over $K$.
+Let $E$ be an \'etale algebra over $k$ which embeds into $A$ as a maximal \'etale subalgebra.
+Let $\rho_1,\rho_2 : E\hookrightarrow A$ be two embeddings.
+
+There exists $\gamma \in A^\times$ such that $\rho_1 = {\rm Int}_\gamma\rho_2$.
+\end{theorem}
+\begin{proof}[Sketch]
+\TODO{Complete the sketch}
+
+Let $g\in A \otimes_k \overline{k}$ realize ${\rm Int}_g\rho_2$.
+
+"It is well known" that this exists over the algebraic closure.
+  - It is well known that we can conjugate so that the images are equal, that we can obtain the isomorphism on the nose is the fact that weil group is big.
+
+We can verify then that $g\sigma(g^{-1})$ gives an element of $E^\times$.
+Thus $g\sigma(g^{-1}) = e\sigma(e^{-1})$ for $e\in E^\times$ (by Hilbert's 90) so that $ge^{-1}$ is a galois stable element realizing the isomorphism.
+\end{proof}
+
+\begin{remark}
+The importance of the above theorem is that it allows us to interchange the following two problems:
+\begin{enumerate}
+\item Understand rational conjugacy classes of maps $\rho: (E,\sigma) \hookrightarrow (A,\tau)$
+\item Understand the rational conjugacy classes of $\tau$ on $A$ extending $\sigma$ on $E$ with respect to a fixed embedding $E\hookrightarrow A$.
+\end{enumerate}
+By the above corralary \ref{TODO} this amounts to a thorough understanding of the rational conjugacy classes of the involutions $\tau_\lambda =  {\rm Int}_\lambda\circ\tau$.
+
+
+\TODO{at some point need to explain why $\tau_\lambda$ and $\tau$ are not rationally conjugate}
+Key point is that $\tau(\lambda x \lambda^{-1}) = \tau(\lambda^{-1}) \tau(x) \tau(\lambda)$ so the involutions $\tau$ and ${\rm Int}_{\tau(\lambda)}\circ \tau\circ {\rm Int}_\lambda$ are rationally conjugate.
+\end{remark}
+
+ 
+
+
 
 \subsection{Invariants of the bilinear forms}
 
