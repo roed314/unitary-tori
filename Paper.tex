@@ -450,6 +450,39 @@ The structure over a global field can then be deduced from this, as the global s
 \end{remark}
 
 
+\subsection{Alternating Forms}
+
+As above, but define classical simplectic groups.
+
+Fix a free $K$-module $V$ of dimension $2n$. There is a unique a non-degenerate alternating $K$-valued $K$-bilinear pairing $S$ on $V$.
+
+$\Sp_S = \Sp = \Aut(V,S)$.
+
+The forms of $(V,S)$ are in bijection with $H^1(\GalKbK, \Aut(V,S))$, as there is only a unique form, this cohomology group vanishes.
+
+\subsection{Symplectic Groups}
+
+For the purpose of this paper a symplectic group means a simply connected group of type $C_n$.
+The outer automorphism group of such a group is trivial, the center if $\mu_2$.
+
+We may construct the symplectic groups as defined above as follows. Fix a quaternion algebra $A$ over $K$ (we allow $M_2(K)$) together with the standard quaternionic involution $\sigma$. If $A$ is $M_2(K)$ then $\sigma( \left( \begin{smallmatrix} w & x\\ y & z \end{smallmatrix} \right) ) =\left( \begin{smallmatrix}z & {-x}\\ {-y} & w \end{smallmatrix} \right) $
+
+Define then $G$ to be the group scheme whose points over a $K$-algebra $R$ are given by:
+\[ G(R) = \{ g\in (M_{n}(A) \otimes_K R)^\times \mid \tau(g^t)g = 1_n \}. \]
+We remark the involution $\tau(g^t)$ on $M_{n}(A)$ is of symplectic type.
+
+\begin{theorem}
+All forms of $G$ arise this way.
+\end{theorem}
+\cite[TODO]{book of involutions}
+
+The cohomological interpretation of this result is as follows:
+
+As the outer automorphism group was trivial and the center was $\mu_2$ we obtain the exact sequence:
+\[\ldots \rightarrow H^1(\GalKbK,\mu_2) \rightarrow  H^1(\GalKbK,G)  \rightarrow  H^1(\GalKbK, \Aut(G)) \rightarrow  H^2(\GalKbK, \mu_2)  \]
+We may thus associate to $G$ a quaternion algebra $A$.
+The cohomology set $H^1(\GalKbK,G) $ classifies alternating forms on $A^n$, as above there is a unique such and so this cohomology set is trivial.
+\cite[TODO]{book of involutions}.
 
 
 
@@ -638,7 +671,7 @@ In both cases, the isomorphism class of the form depends only on $\lambda \in (E
 \end{corollary}
 
 
-\subsubsection{Algebra's with involutions}
+\subsubsection{Algebras with involutions}
 
 \begin{theorem}
 Let $A$ be a central simple algebra over $K$.
@@ -706,6 +739,13 @@ Key point is that $\tau(\lambda x \lambda^{-1}) = \tau(\lambda^{-1}) \tau(x) \ta
 
 
 \subsection{Invariants of the bilinear forms}
+
+From the above it is clear that to classify the groups $G$ into which $T_{E,\sigma}$ embeds, we must understand which forms may arise as one of
+\[ H_{E,\sigma,\lambda} := \tfrac{1}{2}Tr_{E/A}\left(\lambda x\sigma(y)\right) \]
+for Hermitian forms or:
+\[ B_{E,\sigma,\lambda} := \tfrac{1}{2}Tr_{E/K}\left(\lambda x\sigma(y)\right) \]
+for Bilinear forms.
+In particular, we must understand the invariants of these forms.
 
 \TODO - in this section we might benefit from renormalizing the form, in my experiance letting $\lambda' = \lambda/f'_z(z)$ where $z\in E^\sigma$ is such that $\sqrt{z}$ primitively generates $E$ over $K$ is a good choice.
 (Such $z$ exist outside characteristic $2$ when $E$ is a field, or $E$ is an \'etale algebra and $K$ infinite).
@@ -819,6 +859,24 @@ If $E\simeq \CC\times\CC$ with $\sigma$ interchanging factors then the signature
 \[ (1,1). \]
 \end{proposition}
 
+
+\subsubsection{Algebras with involutions}
+
+We now  explain how the invariants of $\tau_\lambda$ depend on $\lambda$.
+Note that in this case the choice of ``base point" is not as canonical and the collection of involutions is really a torsor under the action of the appropriate unit group.
+
+\TODO{fill in details}
+\begin{itemize}
+\item $\lambda$ choses discriminant of unitary groups.
+\subitem This should be intrinsicly clear from definitions... hopefully
+\TODO{In the above version I relate the unitary and orthogonal cases... not clear I want to do that for this case until we give construction later}
+\item $\lambda$ choses the Clifford invariant and index of orthogonal groups.
+\subitem (Same formula as other case)
+\item $\lambda$ irrelevent for symplectic groups.
+\end{itemize}
+
+
+
 \subsection{Embedding in different forms}
 
 \begin{theorem}
@@ -928,6 +986,8 @@ Can we interpret it as telling us about a quaternionic symplectic group embeddin
 
 \subsection{Rational Conjugacy of Tori}
 
+\subsubsection{Unitary Groups}
+
 \begin{theorem}
 Let $(E,A,\tau)$ be a triple consisting of a quadratic \'etale algebra $E$, a degree $n$ central simple algebra $A$ over $E$ with an involution $\tau$ of $A$ which restricts to the unique non-trivial involution on $E$. Let $U_{E,A,\tau}$ be the associated unitary group. Let $\delta_{\tau} \in K^\times/N_{E/K}(E^\times)$ denote the discriminant of $\tau$.
 
@@ -948,14 +1008,14 @@ Local existence $\to$ global existence is easy, as $\lambda \in F$ places $\lamb
 
 Local conjugacy class statement requires knowing conjugacy classes in the local non-split algebra setting. 
 The exact sequence $H^1(F) \rightarrow H^1(Aut(A,F)) \rightarrow H^1(Aut(F))$ tells us these are all conjugate.
-A direct argument of this claim would be nice.
-(Conjugacy of maximal \'etale sub-algebras of central simple algebras must be known).
+\TODO{cite above for direct argument of this claim}
 
 Global conjugacy class statement is then only claiming there are not more conjugacy classes than this, as global conjugacy would imply local conjugacy.
 It is "clear" they are conjugate if they differ by a norm of $F$, because this element can be used to "change" basis.
 (This is basically the Hasse principal in this case).
 \end{proof}
 
+\TODO{cohomological interpretation is supposed to be later I think}
 \begin{remark}
 The cohomological interpretation of this result is as follows.
 
@@ -973,6 +1033,19 @@ We set $N$ to be the normalizer in $U_{E,A,\tau}$ of $T_{F,\sigma}$ and $Z$ be t
 \[ 1 \rightarrow Z \rightarrow N \rightarrow Aut_K((E,A,\tau),(F,\sigma)) \rightarrow 1 \]
 That the tori in $U_{E,A,\tau}$ correspond to elements in the kernel of the map from $H^1(N)$ to $H^1(U_{E,A,\tau})$ is equivalent to the claim that there is a unique element of $H^1(Z)$ whose image is in this kernel so that we have an isomorphism from this kernel in $H^1(N)$ to the above kernel in $Aut_K((E,A,\tau),(F,\sigma))$. This claim about the elements of $H^1(Z)$ follows by observing that elements of $H^1(Z)$ are describing the discriminant of the unitary group.
 \end{remark}
+
+\subsubsection{Orthgogonal Groups}
+
+\TODO{copy and paste from that other thing where I wrote the general theorem}
+The only meaningful way in which the argument differs from my paper is a semi-ugly case analysis on the clifford algebras.
+
+\TODO{cohomological interpretation is later I think}
+
+\subsubsection{Symplectic Groups}
+
+\TODO{write down the result}
+
+\TODO{cohomological interpretation is later I think}
 
 \section{Embeddings of unitary groups in symplectic and orthogonal groups}
 
@@ -1011,25 +1084,71 @@ Now, fix a $K$-division algebra $B$ with a fixed embedding of $E$ into $B$. Deno
 Now define the algebra $C = A_0 \otimes_K B$, the involution $\sigma_C = \sigma_{A_0} \otimes \sigma_B$ is the standard involution and the involution $\tau_C = \sigma_{A_0} \otimes \tau_B$ is an orthogonal involution.
 Both $\sigma_C$ and $\tau_C$ restrict to $\sigma_A$ on the embedded image of $A$ in $C$.
 
-We may thus define the group schemes $SO_J$ and $SP$:
-\[ SO_J(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \tau_C(g^t)Jg = J  \} \]
+We may thus define the group schemes $\SO_J$ and $\Sp$:
+\[ \SO_J(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \tau_C(g^t)Jg = J  \} \]
 and
-\[ SP(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \sigma_C(g^t)Jg = J  \}. \]
+\[ \Sp(R) =  \{ g\in (M_{n}(C) \otimes_K R)^\times \mid \sigma_C(g^t)Jg = J  \}. \]
 We readilly observe that $SU_J$ embeds naturally into both of these groups.
 \begin{remark}
 The group $SP$ is a symplectic group, its isomorphism class does not depend on $J$.
 \end{remark}
 
 \begin{remark}
-In the special case where $A_0$ and $B$ are split, so that $SU_J$ is the special unitary group of an $E$-valued Hermitian form $H$ associated to $J$ then
+In the special case where $A_0$ and $B$ are split, so that $\SU_J$ is the special unitary group of an $E$-valued Hermitian form $H$ associated to $J$ then
 $SO_J$ is the orthogonal group associated to the $K$-valued bilinear form $B(z_1,z_2) = \Tr_{E/K}(H(z_1,z_2))$ and the group $SP$ is the symplectic group associated to the symplectic form $S(z_1,z_2) = \Tr_{E/K}(H(yz_1,z_2))$.
 
-Note that given $SO_J$ or $SP$, and the $E$-module structure on the standard representations, the group $SU_J$ may be recovered.
-Note also that $U_J = SO_J \cap SP$.
+Note that given $\SO_J$ or $\Sp$, and the $E$-module structure on the standard representations, the group $\SU_J$ may be recovered.
+Note also that $U_J = \SO_J \cap \Sp$.
 \end{remark}
 
 
+\TODO{prove that this construction is universal - sketch follows}
+\begin{itemize}
+\item It suffices to prove that rational conjugacy is the same as rational isomorphism.
+\item First claim any conjugate embedding (of groups) arises from a conjugate embedding (of algebras with involutions).
+\item We want to show that any two embeddings $A \hookrightarrow C$ are conjugate.
+        With $A,C$ as defined above but the embedding not necissarily coming from the condition.
 
+        NOTE: we only really care about showing they are $C$ conjugate whenever they are $C\otimes_k \overline{k}$ conjugate.
+\item Pretty sure that $A$ is the centralizer in $C$ of the center of $A$.
+\item Thus, conjugacy classes of $A$ equivalent to conjugacy classes of center of $A$.
+\item Conjugacy classes of the center $Z(A)$ of $A$ are equivalent to $Z(A)$ module structures on the "representation" space of $C$ that are "compatible" with a 
+         $[C]$-module structure on the space.
+
+          That is, there is an $[C]$-basis $c_1,\ldots c_n$ of the representation space, such that $Z(A) \cdot c_i \subset [C]\cdot c_i$.
+          This should follow from the fact that $Z(A)$ splits $C$.
+\item All $[C]$-module structures on the space are equivalent (Hilberts 90), so that any two $c_i$ basis are $C$ equivalent.
+\item This reduces us to conjugacy of $Z(A)$ inside $[C]$, which we have previously shown, but is also well known for quaternion algebras.
+\end{itemize}
+
+\TODO{Want to prove the following facts [that one hopes are facts]}
+\begin{itemize}
+\item The normalizer in $\Sp$ (resp. $\SO$) of $\U$ is $\mu_2 \rtimes \U$ (resp. $\U$).  [or something like this]
+\subitem  suffices to check over the algebraic closure.
+\item The centralizer of the center of $\U$ in $\Sp$ and $\SO$ is $\U$
+\subitem suffices to check over the algebraic closure.
+\subitem Note that the connected component of the normalizer of the center of $\U$ is the centralizer of the center.
+              (first claim reduces to second + claim that normalizer is connected in $\SO$ case)
+\end{itemize}
+
+\TODO{Invariants of orthogonal from those of unitary}
+\begin{itemize}
+\item The discriminant of the unitary involution should determine clifford of the orthogonal.
+\item The discriminant of the orthogonal should be determined by the choice of $E$.
+\item The index of the unitary and orthogonal should be the same.
+\end{itemize}
+
+\TODO{Summary - Given orthogonal which unitary are possible}
+\TODO{Summary - Given unitary which orthogonal are possible}
+
+\TODO{cohomological reinterpretation is now or later?}
+
+\subsection{Decomposing Conjugacy Classes of Tori}
+
+\TODO{The questions about which tori are in the image}
+
+
+\TODO{cohomological reinterpretation is now or later?}
 
 \section{Cohomological Reinterpretation}
 
