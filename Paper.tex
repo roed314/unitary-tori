@@ -455,17 +455,15 @@ The structure over a global field can then be deduced from this, as the global s
 As above, but define classical simplectic groups.
 
 Fix a free $K$-module $V$ of dimension $2n$. There is a unique a non-degenerate alternating $K$-valued $K$-bilinear pairing $S$ on $V$.
-
-$\Sp_S = \Sp = \Aut(V,S)$.
-
+We define the associated symplectic group to be $\Sp_S = \Sp = \Aut(V,S)$.
 The forms of $(V,S)$ are in bijection with $H^1(\GalKbK, \Aut(V,S))$, as there is only a unique form, this cohomology group vanishes.
 
 \subsection{Symplectic Groups}
 
 For the purpose of this paper a symplectic group means a simply connected group of type $C_n$.
-The outer automorphism group of such a group is trivial, the center if $\mu_2$.
+The outer automorphism group of such a group is trivial, the center is $\mu_2$.
 
-We may construct the symplectic groups as defined above as follows. Fix a quaternion algebra $A$ over $K$ (we allow $M_2(K)$) together with the standard quaternionic involution $\sigma$. If $A$ is $M_2(K)$ then $\sigma( \left( \begin{smallmatrix} w & x\\ y & z \end{smallmatrix} \right) ) =\left( \begin{smallmatrix}z & {-x}\\ {-y} & w \end{smallmatrix} \right) $
+We may construct these symplectic groups as follows. Fix a quaternion algebra $A$ over $K$ (we allow $M_2(K)$) together with the standard quaternionic involution $\sigma$. If $A$ is $M_2(K)$ then $\sigma( \left( \begin{smallmatrix} w & x\\ y & z \end{smallmatrix} \right) ) =\left( \begin{smallmatrix}z & {-x}\\ {-y} & w \end{smallmatrix} \right) $
 
 Define then $G$ to be the group scheme whose points over a $K$-algebra $R$ are given by:
 \[ G(R) = \{ g\in (M_{n}(A) \otimes_K R)^\times \mid \tau(g^t)g = 1_n \}. \]
@@ -862,6 +860,8 @@ If $E\simeq \CC\times\CC$ with $\sigma$ interchanging factors then the signature
 
 \subsubsection{Algebras with involutions}
 
+\TODO{Theorem expessing the $E$ splits $M$ condition}
+
 We now  explain how the invariants of $\tau_\lambda$ depend on $\lambda$.
 Note that in this case the choice of ``base point" is not as canonical and the collection of involutions is really a torsor under the action of the appropriate unit group.
 
@@ -1101,10 +1101,50 @@ Note that given $\SO_J$ or $\Sp$, and the $E$-module structure on the standard r
 Note also that $U_J = \SO_J \cap \Sp$.
 \end{remark}
 
+\begin{theorem}
+Let $(A,\tau_A)$ be a central simple algebra of degree $n$ over $(E,\sigma)$ with involution of the second kind.
+Suppose $(C,\tau_C)$ is a central simple algebra of degree $n$ over $k$ with orthogonal involution.
+Then $(A,\tau_A)\hookrightarrow (C,\tau_C)$ if and only if there exists $(A_0,\tau_0)$ a central simple algebra over $k$ with syplectic involution and $(B,\tau_B)$ a quaternion algebra over $k$ with an orthogonal involution such that:
+\begin{enumerate}
+\item $(E,\sigma) \hookrightarrow (B,\tau_B)$.
+\item $(A,\tau_A) = (A_0,\tau_0) \otimes_k (E,\sigma)$.
+\item $(C,\tau_C) = (A_0,\tau_0) \otimes_k (B,\tau_B)$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\TODO{fill in sketch}
 
-\TODO{prove that this construction is universal - sketch follows}
+\TODO{Note-I suspect one can turn the argument about rataional conjugacy=rational isomorphism into an alternate constructive proof}
 \begin{itemize}
-\item It suffices to prove that rational conjugacy is the same as rational isomorphism.
+\item
+We know that $(A,\tau) = (A_0,\tau_0)\otimes (E,\sigma)$ for a unique $(A_0,\tau_0)$.
+\item
+Composition of maps then gives us an inclusion $(A_0,\tau_0) \hookrightarrow (A,\tau_A)$.
+\item
+It is then automatic that there exists $B$ such that $C= A_0 \otimes_k B$.
+\item
+Note that if $C$ split $A_0,B$ not split and $E$ split then no map $A_0\times A_0$ into $C$
+ ($GL_{A_0\times A_0}$ has no representation of dimension $2n$, smallest is dimension $2n^2$
+ this implies $E\hookrightarrow B$.
+\item
+We then can consider the restriction of $\tau_C$ to $A_0$ and $B$.
+This determines $\tau_B'$ and $\tau_0'$.
+\item
+One of $\tau_B', \tau_0'$ is syplectic the other orthogonal.
+We claim we can't get them backwords because the discriminant of $\tau_C$ would be $D(\tau_0')^2$ if we did.
+In which case it is a square, and we can easily then swap $\tau_B'$ and $\tau_0'$ roles...
+\end{itemize}
+\end{proof}
+
+
+
+\begin{proposition}
+\TODO{Rational conjugacy classes}
+Rational conjugacy is the same as rational isomorphism.
+\end{proposition}
+\begin{proof}
+\TODO{this might also be modifiable to show that the above construction is universal}
+\begin{itemize}
 \item First claim any conjugate embedding (of groups) arises from a conjugate embedding (of algebras with involutions).
 \item We want to show that any two embeddings $A \hookrightarrow C$ are conjugate.
         With $A,C$ as defined above but the embedding not necissarily coming from the condition.
@@ -1130,16 +1170,69 @@ Note also that $U_J = \SO_J \cap \Sp$.
 \subitem Note that the connected component of the normalizer of the center of $\U$ is the centralizer of the center.
               (first claim reduces to second + claim that normalizer is connected in $\SO$ case)
 \end{itemize}
+\end{proof}
 
 \TODO{Invariants of orthogonal from those of unitary}
-\begin{itemize}
-\item The discriminant of the unitary involution should determine clifford of the orthogonal.
-\item The discriminant of the orthogonal should be determined by the choice of $E$.
-\item The index of the unitary and orthogonal should be the same.
-\end{itemize}
 
+\begin{proposition}
+Let $(A,\tau_A)$ be a central simple algebra of degree $n$ over $(E,\sigma)$ with involution of the second kind.
+Suppose $(C,\tau_C)$ is a central simple algebra of degree $n$ over $k$ with orthogonal involution such that $(A,\tau_A)\hookrightarrow (C,\tau_C)$.
+
+The invariants of $(A,\tau_A)$ and $(C,\tau_C)$ are related as follows:
+\begin{enumerate}
+\item The discriminant of $\tau_C$ is $\delta_E^{n}$.
+\item The discriminant of the unitary involution should determine clifford of the orthogonal.
+\TODO{phrasing of above... }
+          changing discriminant (action of $d\in k^\times/N_{E/k}(E^\times)$ is (something like) by $(d,\delta_E)$ on class of clifford algebra.
+\item The discriminant of the unitary involution should be determined (somehow) by discriminant of $A_0$
+\TODO{Not sure if we want to say this in this proposition or a elsewhere}
+\item The algebra $B$ is determined by $A_0$ and $C$. The discriminant of $\tau_B$ should be $\delta_E$.
+
+\item The index of $\tau_A$ and $\tau_C$ are the same (or at least determine each other).
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\TODO{complete sketch}
+\begin{itemize}
+\item The first and fourth points follow from definition of discriminant (it is the norm of the appropriate element of $E$)
+\item The third point is clear by construction but the actual dependence is important.
+\item The second then follows from the third (by construction) but again, the actual dependence should be spelled out.
+\item The fifth point in one direction is clear (maximal split in torus can be pushed forward). In the other direction is clear for $A,C$ matrix algebras. 
+         Case by case analysis should cover the rest.
+\end{itemize}
+\end{proof}
+
+
+Based on the above we conclude:
+\begin{proposition}
 \TODO{Summary - Given orthogonal which unitary are possible}
+\begin{itemize}
+\item The index is determined.
+\item The algebra $E$ is determined when $n$ is odd.
+\item When $n$ is even, the discriminant must be trivial or there are NO unitary groups.
+\item The choice of $B$ determines $A_0$ which determines $A$.
+\item The Clifford algebra determines the discriminant of the unitary group.
+\end{itemize}
+\end{proposition}
+
+Based on the above we also conclude:
+\begin{proposition}
 \TODO{Summary - Given unitary which orthogonal are possible}
+\begin{itemize}
+\item The discriminant and index are determined. (non-trivial discriminants can never occur if $n$ is even).
+\item The Clifford algebra can vary, this depends on the choice of $B$ in the construction.
+\subitem The choice of $B$ determines $C$... the choice is then not really of the clifford algebra (as of $C$), which then together with the choice of discriminant of the unitary group determines the Clifford algebra.
+\subitem The interpretation of the Clifford algebra as a cohomology class in some sense depends on choice of map $E\hookrightarrow C$, which depends on $E\hookrightarrow B$.
+               The apparent difficulties of this are likely allieviated by the fact that $n$ even forces trivial discriminant!.
+
+\item The limitations on choise are that $E$ splits $B$, this limits choices for $C$.
+\end{itemize}
+\end{proposition}
+
+\TODO{same as above but for symplectic}
+
+
+
 
 \TODO{cohomological reinterpretation is now or later?}
 
@@ -1148,7 +1241,30 @@ Note also that $U_J = \SO_J \cap \Sp$.
 \TODO{The questions about which tori are in the image}
 
 
+\begin{itemize}
+\item I think $T_{E,\sigma}$ which embeds in an orthogonal is in the image of a unitary if and only if $E$ has a quadratic subextension which $\sigma$ restricts non-trivially to.
+
+Fixing $x$ a generator of this subextension, the unitary group should come from the centralizer of this in the orthogonal group (suffices to check over algebraic closure).
+
+\item \TODO{example of an even degree field with no degree $2$ subextension - an alternating group Galois extension should work}
+
+\item Any torus in the image from a unitary group should arise from a unique rational conjugacy class of unitary group (determined by the quadratic subextension).
+
+\item I think the same is true for symplectic groups.
+
+\item Given $T_{E,\sigma}$ not sure when it embeds in both a symplectic and orthgonal (for the same algebra).
+\subitem
+             It will if it embeds into a unitary (as it is then in the intersection).
+\subitem
+             But I suspect that every torus embedding in a symptlectic (resp orthogonal) embeds in an orthogonal (resp symplectic) though likely not into all the orthogonals.
+\end{itemize}
+
+
+
 \TODO{cohomological reinterpretation is now or later?}
+   - This is largely the difference between the "weil groups" of the AN and DN/CN types.
+          (really the weyl semi direct the outer automorphism group)
+   - 
 
 \section{Cohomological Reinterpretation}
 
